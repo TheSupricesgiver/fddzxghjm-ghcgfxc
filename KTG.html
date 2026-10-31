@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kinetic Theory of Gases (KTG) — Complete Short Notes & JEE Revision Portal</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- KaTeX for crisp Physics Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Crisp Academic Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.4);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.7);
+    }
+
+    .formula-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.06) 100%);
+      border-left: 3px solid #6366f1;
+    }
+    html:not(.dark) .formula-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border-left: 3px solid #4f46e5;
+    }
+
+    .katex-display {
+      margin: 0.45em 0 !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.15em 0;
+    }
+
+    /* Print-Ready Stylesheet */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 11pt;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-break-avoid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .card-surface {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        color: #0f172a !important;
+      }
+      details {
+        display: block !important;
+      }
+      details > summary {
+        display: none !important;
+      }
+      details > div {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 light:bg-slate-50 light:text-slate-900 min-h-screen font-sans selection:bg-indigo-500 selection:text-white transition-colors duration-200">
+
+  <!-- TOP STICKY HEADER -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/90 dark:bg-slate-950/90 border-b border-slate-800/80 transition-colors no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+      <!-- Title & Meta Badge -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-emerald-500 flex items-center justify-center shadow-lg shadow-indigo-500/20 font-mono font-bold text-white text-lg">
+            KTG
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h1 class="text-lg sm:text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-indigo-200 to-emerald-200 bg-clip-text text-transparent">
+                Kinetic Theory of Gases — Short Notes
+              </h1>
+              <span class="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-semibold">
+                100% Notebook Verified (17/17 Pages)
+              </span>
+            </div>
+            <p class="text-xs text-slate-400">
+              Complete Revision Sheet • Zero Omissions • Derivations, Graphs, 6 Solved Problems & Interactive Lab
+            </p>
+          </div>
+        </div>
+
+        <!-- Mobile Quick Buttons -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <button id="themeToggleMobile" onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700" title="Toggle Light/Dark Mode">
+            <span class="theme-icon">☀️</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search, Audit Modal & Print Controls -->
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+        <!-- Instant Search -->
+        <div class="relative flex-1 sm:w-64">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input
+            id="searchInput"
+            type="text"
+            oninput="handleSearch(this.value)"
+            placeholder="Search formula, law, CO₂, piston, λ..."
+            class="w-full pl-9 pr-8 py-1.5 text-xs sm:text-sm rounded-xl bg-slate-900/90 border border-slate-700/80 text-slate-100 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+          />
+          <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs">✕</button>
+        </div>
+
+        <!-- Page-by-Page Audit Button -->
+        <button onclick="openAuditModal()" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 flex items-center gap-1.5 transition">
+          <span>📋</span>
+          <span>17-Page Checklist</span>
+        </button>
+
+        <!-- Theme Toggle Desktop -->
+        <button onclick="toggleTheme()" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          <span class="theme-icon">☀️</span>
+          <span id="themeText">Light Mode</span>
+        </button>
+
+        <!-- Print / PDF Button -->
+        <button onclick="window.print()" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm shadow-emerald-600/30 flex items-center gap-1.5 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+          </svg>
+          <span>Print / PDF</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- VIEW MODE TABS & SECTION JUMP PILLS -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 border-t border-slate-800/60 flex flex-wrap items-center justify-between gap-2">
+      <!-- Primary View Switcher -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+        <button onclick="switchTab('all')" id="tab-all" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm transition whitespace-nowrap">
+          ⚡ Complete Short Notes (All)
+        </button>
+        <button onclick="switchTab('formulas')" id="tab-formulas" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition whitespace-nowrap">
+          📐 1-Page Formula Sheet
+        </button>
+        <button onclick="switchTab('derivations')" id="tab-derivations" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition whitespace-nowrap">
+          🔬 All 5 Derivations
+        </button>
+        <button onclick="switchTab('problems')" id="tab-problems" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition whitespace-nowrap">
+          ✍️ Solved Notebook Qs (6)
+        </button>
+        <button onclick="switchTab('simulator')" id="tab-simulator" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-emerald-300 hover:bg-slate-800 border border-emerald-500/30 transition whitespace-nowrap">
+          📈 Interactive Maxwell Lab
+        </button>
+      </div>
+
+      <!-- Quick Jump Links -->
+      <div id="quickJumpNav" class="hidden xl:flex items-center gap-1 text-[11px] text-slate-400">
+        <span class="text-slate-500 mr-1">Jump:</span>
+        <a href="#sec-1" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">1. Ideal Gas & Assumptions</a>
+        <a href="#sec-2" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">2. Kinetic Gas Eqn</a>
+        <a href="#sec-3" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">3. Gas Laws</a>
+        <a href="#sec-4" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">4. Maxwell & Speeds</a>
+        <a href="#sec-5" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">5. Mean Free Path</a>
+        <a href="#sec-6" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">6. DOF & Equipartition</a>
+        <a href="#sec-7" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">7. Solids & Water</a>
+        <a href="#sec-8" class="px-2 py-0.5 rounded hover:bg-slate-800 hover:text-indigo-300 transition">8. Solved Qs</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-8">
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 1: COMPLETE SHORT NOTES (DEFAULT)                                -->
+    <!-- ===================================================================== -->
+    <div id="view-all" class="space-y-8">
+
+      <!-- TOP SUMMARY BANNER / CONSTANTS BAR -->
+      <div class="card-surface rounded-2xl bg-slate-900/90 border border-slate-800 p-4 sm:p-5 shadow-xl print-break-avoid">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">QUICK CONSTANTS & SYMBOLS</span>
+            <span class="text-xs text-slate-400">From Notebook Pages 2, 4, 6 & 17</span>
+          </div>
+          <span class="text-xs font-mono text-emerald-400">Dates in Notes: 20/01/26 • 22/01/26 • 23/01/26</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+            <div class="text-slate-400 font-medium">Boltzmann Const ($k_B$)</div>
+            <div class="text-sm font-bold text-indigo-300 mt-0.5">$1.38 \times 10^{-23}\text{ J/K}$</div>
+            <div class="text-[11px] text-slate-500">$k_B = R / N_A$</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+            <div class="text-slate-400 font-medium">Universal Gas Const ($R$)</div>
+            <div class="text-sm font-bold text-emerald-300 mt-0.5">$8.31\text{ J/mol}\cdot\text{K}$</div>
+            <div class="text-[11px] text-slate-400">$\approx \frac{25}{3}\text{ J/mol}\cdot\text{K} \approx 2\text{ cal/mol}\cdot\text{K}$</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+            <div class="text-slate-400 font-medium">Molar Volume @ STP</div>
+            <div class="text-sm font-bold text-amber-300 mt-0.5">$22.4\text{ Litres/mol}$</div>
+            <div class="text-[11px] text-slate-400">At $0^\circ\text{C}\ (273\text{ K}), 1\text{ atm}$</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+            <div class="text-slate-400 font-medium">Mass Relations</div>
+            <div class="text-sm font-bold text-purple-300 mt-0.5">$M = mN = nM_0$</div>
+            <div class="text-[11px] text-slate-400">$n = \frac{N}{N_A} = \frac{M}{M_0}$</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+            <div class="text-slate-400 font-medium">Speed Ratio</div>
+            <div class="text-sm font-bold text-sky-300 mt-0.5">$\sqrt{3} : \sqrt{\frac{8}{\pi}} : \sqrt{2}$</div>
+            <div class="text-[11px] text-slate-400">$v_{\text{rms}} > v_{\text{avg}} > v_{\text{mp}}$</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+            <div class="text-slate-400 font-medium">Specific Heat (Solids/$\text{H}_2\text{O}$)</div>
+            <div class="text-sm font-bold text-rose-300 mt-0.5">$C_{\text{solid}}=3R,\ C_{\text{H}_2\text{O}}=9R$</div>
+            <div class="text-[11px] text-slate-400">$S_{\text{H}_2\text{O}} = 1\text{ cal/g}\cdot\text{K}$</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 1: INTRODUCTION, IDEAL GAS & ASSUMPTIONS OF KTG (PP. 1-2) -->
+      <!-- ================================================================= -->
+      <section id="sec-1" class="searchable-section space-y-4 print-break-avoid">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 font-mono text-xs font-bold flex items-center justify-center">01</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">Introduction, Ideal Gas & Assumptions of KTG</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 1 – 2</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Left Column: Core Definition & Ideal Gas Conditions -->
+          <div class="lg:col-span-5 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+                <span>🎯 Core Objective of KTG</span>
+              </div>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                In <strong class="text-white">Kinetic Theory of Gases (KTG)</strong>, we relate <span class="text-indigo-300 font-medium">macroscopic properties</span> of a gas (like Pressure $P$, Temperature $T$, Volume $V$) to the <span class="text-emerald-300 font-medium">microscopic random motion</span> of its molecules.
+              </p>
+
+              <div class="pt-2 border-t border-slate-800/80">
+                <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                  <span>✨ Ideal Gas: Two Mandatory Conditions</span>
+                </h3>
+                <div class="space-y-2.5">
+                  <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                    <div class="text-xs font-bold text-emerald-400">Condition 1: No Intermolecular Forces</div>
+                    <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                      $F_{\text{intermolecular}} = 0 \implies$ Since there are no intermolecular attractive/repulsive forces between molecules of an ideal gas, there is <strong class="text-white underline decoration-emerald-500/60">zero potential energy ($\text{PE} = 0$)</strong> corresponding to it.
+                    </p>
+                  </div>
+                  <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                    <div class="text-xs font-bold text-sky-400">Condition 2: Point Mass Volume ($V_{\text{gas}} \gg V_{\text{molecules}}$)</div>
+                    <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                      Volume occupied by the gas (container volume $V$) is much larger than the actual volume of the gas molecules $\implies$ <strong class="text-white">Separation between molecules $\gg$ size of molecules</strong>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- High-Yield Exam Callout -->
+            <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center gap-3">
+              <div class="text-xl">🔥</div>
+              <div class="text-xs">
+                <div class="font-bold text-amber-300 uppercase tracking-wide">When do Real Gases behave like Ideal Gases?</div>
+                <div class="text-slate-200 mt-0.5">
+                  Under <strong class="text-white bg-amber-500/20 px-1.5 py-0.5 rounded">High Temperature</strong> &amp; <strong class="text-white bg-amber-500/20 px-1.5 py-0.5 rounded">Low Pressure</strong> (low density $\implies$ large intermolecular separation &amp; negligible intermolecular forces).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 6 Postulates / Assumptions of KTG -->
+          <div class="lg:col-span-7 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                <span>📌 The 6 Fundamental Assumptions of KTG</span>
+              </h3>
+              <span class="text-[11px] font-mono text-slate-400">Pages 1 & 2</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold flex items-center justify-center shrink-0">1</span>
+                <div>
+                  <div class="font-semibold text-white">Rigid Elastic Spheres</div>
+                  <p class="text-slate-300 mt-0.5 leading-relaxed">Gas molecules are rigid, perfectly elastic spheres of very small diameters, and they obey <strong>Newton's laws of motion</strong>.</p>
+                </div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold flex items-center justify-center shrink-0">2</span>
+                <div>
+                  <div class="font-semibold text-white">Identical Molecules</div>
+                  <p class="text-slate-300 mt-0.5 leading-relaxed">All the molecules of a given gas are completely identical in <strong>shape, size, and mass ($m$)</strong>.</p>
+                </div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold flex items-center justify-center shrink-0">3</span>
+                <div>
+                  <div class="font-semibold text-white">Molecular Chaos</div>
+                  <p class="text-slate-300 mt-0.5 leading-relaxed">Molecules are consistently in a state of random motion moving in all possible directions with different velocities — called <strong class="text-indigo-300">Molecular Chaos</strong>.</p>
+                </div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold flex items-center justify-center shrink-0">4</span>
+                <div>
+                  <div class="font-semibold text-white">Elastic Collisions (No Energy Loss)</div>
+                  <p class="text-slate-300 mt-0.5 leading-relaxed">Molecules continuously collide with each other &amp; with container walls. All collisions are <strong>perfectly elastic</strong> (no loss of kinetic energy).</p>
+                </div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold flex items-center justify-center shrink-0">5</span>
+                <div>
+                  <div class="font-semibold text-white">Force-Free Straight Line Paths</div>
+                  <p class="text-slate-300 mt-0.5 leading-relaxed">Molecules do not exert any force on each other (except during collision) and hence <strong>travel in straight lines</strong> between two successive collisions.</p>
+                </div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono font-bold flex items-center justify-center shrink-0">6</span>
+                <div>
+                  <div class="font-semibold text-white">Negligible Collision Duration</div>
+                  <p class="text-slate-300 mt-0.5 leading-relaxed">The time required for a collision itself is <strong>very small ($\ll$)</strong> compared to the time interval between two successive collisions (relaxation time).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 2: KINETIC GAS EQUATION & TRANSLATIONAL KE (PP. 2-4, 12-13) -->
+      <!-- ================================================================= -->
+      <section id="sec-2" class="searchable-section space-y-4 print-break-avoid">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-mono text-xs font-bold flex items-center justify-center">02</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">Kinetic Gas Equation &amp; Translational Kinetic Energy</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 2 – 4, 12 – 13</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Left: SVG Cubical Container + Step-by-Step Derivation -->
+          <div class="lg:col-span-7 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-4">
+            <div class="flex flex-col sm:flex-row gap-4 items-center">
+              <!-- Exact Notebook Cubical Container SVG Diagram -->
+              <div class="w-full sm:w-56 shrink-0 bg-slate-950/90 rounded-xl border border-slate-800 p-3 flex flex-col items-center">
+                <svg viewBox="0 0 220 175" class="w-48 h-40">
+                  <!-- Coordinate Axes -->
+                  <g stroke="#94a3b8" stroke-width="1.5" fill="none">
+                    <line x1="35" y1="45" x2="35" y2="12" />
+                    <polyline points="31,17 35,12 39,17" />
+                    <line x1="35" y1="45" x2="70" y2="45" />
+                    <polyline points="65,41 70,45 65,49" />
+                    <line x1="35" y1="45" x2="15" y2="62" />
+                    <polyline points="16,56 15,62 21,61" />
+                  </g>
+                  <text x="31" y="10" fill="#cbd5e1" font-size="11" font-family="monospace" font-weight="bold">Y</text>
+                  <text x="74" y="48" fill="#cbd5e1" font-size="11" font-family="monospace" font-weight="bold">X</text>
+                  <text x="4" y="68" fill="#cbd5e1" font-size="11" font-family="monospace" font-weight="bold">Z</text>
+
+                  <!-- Back Face of Cube -->
+                  <polygon points="85,45 185,45 185,125 85,125" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="3,3"/>
+                  <!-- Shaded Right Wall (Target Wall perpendicular to X) -->
+                  <polygon points="155,70 185,45 185,125 155,150" fill="rgba(99, 102, 241, 0.25)" stroke="#818cf8" stroke-width="2"/>
+                  <!-- Hatching lines on shaded wall like notebook -->
+                  <line x1="160" y1="80" x2="180" y2="63" stroke="#818cf8" stroke-width="1" opacity="0.6"/>
+                  <line x1="158" y1="100" x2="183" y2="79" stroke="#818cf8" stroke-width="1" opacity="0.6"/>
+                  <line x1="158" y1="120" x2="183" y2="99" stroke="#818cf8" stroke-width="1" opacity="0.6"/>
+                  <line x1="158" y1="140" x2="183" y2="119" stroke="#818cf8" stroke-width="1" opacity="0.6"/>
+
+                  <!-- Front Face & Connecting Edges -->
+                  <polygon points="55,70 155,70 155,150 55,150" fill="none" stroke="#e2e8f0" stroke-width="1.8"/>
+                  <line x1="55" y1="70" x2="85" y2="45" stroke="#e2e8f0" stroke-width="1.8"/>
+                  <line x1="155" y1="70" x2="185" y2="45" stroke="#e2e8f0" stroke-width="1.8"/>
+                  <line x1="55" y1="150" x2="85" y2="125" stroke="#475569" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+                  <!-- Dimension l on top -->
+                  <line x1="85" y1="32" x2="185" y2="32" stroke="#34d399" stroke-width="1.5"/>
+                  <polyline points="91,28 85,32 91,36" fill="none" stroke="#34d399" stroke-width="1.5"/>
+                  <polyline points="179,28 185,32 179,36" fill="none" stroke="#34d399" stroke-width="1.5"/>
+                  <text x="132" y="28" fill="#34d399" font-size="12" font-family="serif" font-style="italic" font-weight="bold">l</text>
+
+                  <!-- Molecule m & velocity vectors -->
+                  <circle cx="102" cy="112" r="4.5" fill="#f43f5e"/>
+                  <text x="86" y="125" fill="#fda4af" font-size="11" font-family="monospace" font-weight="bold">m</text>
+                  <!-- Vector v -->
+                  <line x1="102" y1="112" x2="132" y2="88" stroke="#fbbf24" stroke-width="2"/>
+                  <polyline points="125,88 132,88 130,95" fill="none" stroke="#fbbf24" stroke-width="2"/>
+                  <text x="112" y="88" fill="#fbbf24" font-size="12" font-weight="bold">v⃗</text>
+                  <!-- Component vx -->
+                  <line x1="102" y1="112" x2="140" y2="112" stroke="#38bdf8" stroke-width="2"/>
+                  <polyline points="134,108 140,112 134,116" fill="none" stroke="#38bdf8" stroke-width="2"/>
+                  <text x="122" y="127" fill="#38bdf8" font-size="11" font-family="monospace" font-weight="bold">vₓ</text>
+                </svg>
+                <span class="text-[11px] text-slate-400 font-mono">Cube of side $l$, Area $A=l^2$, $V=l^3$</span>
+              </div>
+
+              <!-- Variables & Sample Definitions -->
+              <div class="flex-1 space-y-2 text-xs">
+                <div class="font-bold text-white text-sm">Sample Parameters (Page 2)</div>
+                <div class="grid grid-cols-2 gap-1.5 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 font-mono text-[11px]">
+                  <div><span class="text-indigo-400">$N$</span> : Total molecules</div>
+                  <div><span class="text-indigo-400">$N_A$</span> : Avogadro's no.</div>
+                  <div><span class="text-indigo-400">$n$</span> : No. of moles</div>
+                  <div><span class="text-indigo-400">$m$</span> : Mass of 1 molecule</div>
+                  <div><span class="text-indigo-400">$M$</span> : Mass of sample ($mN$)</div>
+                  <div><span class="text-indigo-400">$M_0$</span> : Molar mass ($mN_A$)</div>
+                </div>
+                <p class="text-slate-300 leading-relaxed">
+                  A molecule of mass $m$ collides elastically with the shaded wall perpendicular to the $X$-axis ($v_x$ reverses to $-v_x$, while $v_y, v_z$ remain unchanged).
+                </p>
+              </div>
+            </div>
+
+            <!-- Complete Step-by-Step Derivation Box -->
+            <div class="space-y-2 text-xs bg-slate-950/70 p-4 rounded-xl border border-slate-800">
+              <div class="font-bold text-indigo-300 uppercase tracking-wider mb-1">Step-by-Step Derivation (Pages 2–3)</div>
+              <ol class="space-y-2 list-decimal list-inside text-slate-200">
+                <li>
+                  <strong class="text-white">Momentum transferred to wall per collision:</strong>
+                  <span class="font-mono text-emerald-300 ml-1">$\Delta P = 2 m v_x$</span>
+                </li>
+                <li>
+                  <strong class="text-white">Time between two successive collisions with same wall:</strong>
+                  <span class="font-mono text-emerald-300 ml-1">$\Delta t = \dfrac{2l}{v_x}$</span>
+                </li>
+                <li>
+                  <strong class="text-white">Average force exerted by 1 molecule on wall:</strong>
+                  <span class="font-mono text-emerald-300 ml-1">$f = \dfrac{\Delta P}{\Delta t} = \dfrac{2 m v_x}{2l / v_x} = \dfrac{m v_x^2}{l}$</span>
+                </li>
+                <li>
+                  <strong class="text-white">Total force exerted on wall by all $N$ molecules:</strong>
+                  <span class="font-mono text-emerald-300 ml-1">$F = \sum f = \sum \left(\dfrac{m}{l} v_x^2\right) = \dfrac{m}{l} \sum v_x^2$</span>
+                </li>
+                <li>
+                  <strong class="text-white">Pressure exerted on wall ($A = l^2, V = l^3$):</strong>
+                  <div class="mt-1 pl-4 text-slate-300">
+                    $$P = \frac{F}{A} = \frac{F}{l^2} = \frac{m}{l^3} \sum v_x^2 = \frac{m}{V} \sum v_x^2 \implies PV = m \sum v_x^2 \quad \text{--- (Eq. 1)}$$
+                  </div>
+                </li>
+                <li>
+                  <strong class="text-white">By Isotropy of Random Motion:</strong> $\sum v_x^2 = \sum v_y^2 = \sum v_z^2$. Since $v^2 = v_x^2 + v_y^2 + v_z^2$:
+                  <div class="mt-1 pl-4 text-slate-300">
+                    $$\sum v^2 = \sum (v_x^2 + v_y^2 + v_z^2) = 3 \sum v_x^2 \implies \sum v_x^2 = \frac{1}{3} \sum v^2$$
+                  </div>
+                </li>
+                <li>
+                  <strong class="text-white">Substituting in Eq. (1) &amp; introducing $v_{\text{rms}}^2 = \frac{\sum v^2}{N}$:</strong>
+                  <div class="mt-1 pl-4 text-emerald-300 font-semibold">
+                    $$PV = \frac{1}{3} m \sum v^2 = \frac{1}{3} (mN) \left(\frac{\sum v^2}{N}\right) = \frac{1}{3} M v_{\text{rms}}^2$$
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Right: All Forms of Kinetic Gas Eqn & Translational KE -->
+          <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
+            <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3">
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider">⚡ Master Equations: Kinetic Gas Equation</h3>
+              <div class="formula-box p-3.5 rounded-xl space-y-2 text-sm">
+                <div>$$PV = \frac{1}{3} m N v_{\text{rms}}^2 = \frac{1}{3} M v_{\text{rms}}^2$$</div>
+                <div>$$P = \frac{1}{3} \frac{M}{V} v_{\text{rms}}^2 = \frac{1}{3} \rho v_{\text{rms}}^2 \quad \left(\rho = \frac{M}{V} = \text{density}\right)$$</div>
+              </div>
+              <div class="text-xs text-slate-300 bg-slate-950/60 p-3 rounded-xl border border-slate-800">
+                <strong class="text-indigo-300">Definition of $v_{\text{rms}}$:</strong> Root Mean Square speed is the square root of the mean/average of squares of speeds of all gas molecules:
+                $$v_{\text{rms}} = \sqrt{\frac{\sum v^2}{N}} = \sqrt{\frac{v_1^2 + v_2^2 + \dots + v_N^2}{N}}$$
+              </div>
+            </div>
+
+            <!-- Translational KE of Gas (Pages 3, 12-13) -->
+            <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 flex-1">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-white uppercase tracking-wider">🔋 Translational Kinetic Energy ($K$)</h3>
+                <span class="text-[11px] font-mono text-slate-400">Pages 3, 12–13</span>
+              </div>
+              <p class="text-xs text-slate-300">
+                Since $K = \sum \frac{1}{2} m v^2 = \frac{1}{2} m \sum v^2 = \frac{1}{2} m (N v_{\text{rms}}^2) = \frac{1}{2} M v_{\text{rms}}^2$:
+              </p>
+              <div class="formula-box p-3 rounded-xl text-sm">
+                $$PV = \frac{2}{3} \left(\frac{1}{2} M v_{\text{rms}}^2\right) \implies \mathbf{PV = \frac{2}{3} K} \quad \text{or} \quad \mathbf{K = \frac{3}{2} PV}$$
+              </div>
+
+              <div class="grid grid-cols-1 gap-2 text-xs pt-1">
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-emerald-300">1. Total Sample ($n$ moles)</div>
+                    <div class="text-[11px] text-slate-400">Using $v_{\text{rms}} = \sqrt{3RT/M_0}$</div>
+                  </div>
+                  <div class="font-mono text-sm font-bold text-white">$K = \frac{1}{2} M v_{\text{rms}}^2 = \frac{3}{2} nRT = \frac{3}{2} PV$</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-sky-300">2. For $1\text{ Mole}$ of Gas ($K_1$)</div>
+                    <div class="text-[11px] text-slate-400">$K_1 = K / n$ (Only depends on $T$!)</div>
+                  </div>
+                  <div class="font-mono text-sm font-bold text-white">$K_1 = \frac{3}{2} RT$</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-purple-300">3. Average KE of $1\text{ Molecule}$</div>
+                    <div class="text-[11px] text-slate-400">$K_{\text{molecule}} = K_1 / N_A$ (Only depends on $T$!)</div>
+                  </div>
+                  <div class="font-mono text-sm font-bold text-white">$K_{\text{mol}} = \frac{3}{2} k_B T$</div>
+                </div>
+              </div>
+              <div class="text-[11px] text-amber-300 bg-amber-500/10 border border-amber-500/20 px-3 py-2 rounded-lg">
+                💡 <strong>Note from Page 12 &amp; 13:</strong> Translational KE of $1\text{ mole}$ ($\frac{3}{2}RT$) and $1\text{ molecule}$ ($\frac{3}{2}k_B T$) depends <strong>ONLY on absolute temperature $T$</strong> (independent of nature/molar mass/atomicity of gas).
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 3: IDEAL GAS EQUATION & CLASSICAL GAS LAWS (PP. 4-6)      -->
+      <!-- ================================================================= -->
+      <section id="sec-3" class="searchable-section space-y-4 print-break-avoid">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-sky-500/20 border border-sky-500/40 text-sky-300 font-mono text-xs font-bold flex items-center justify-center">03</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">Ideal Gas Equation &amp; The 4 Classical Gas Laws</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 4 – 6</span>
+        </div>
+
+        <!-- Derivation of Ideal Gas Eqn from KTG (Page 4) -->
+        <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+            <div class="lg:col-span-7 space-y-2 text-xs">
+              <div class="font-bold text-sm text-white flex items-center gap-2">
+                <span>🔗 Derivation of Ideal Gas Equation from KTG (Page 4)</span>
+              </div>
+              <p class="text-slate-300 leading-relaxed">
+                From the kinetic gas equation: $PV = \frac{1}{3} m N v_{\text{rms}}^2 = \frac{2}{3} N \left(\frac{1}{2} m v_{\text{rms}}^2\right)$.
+                Here $\left(\frac{1}{2} m v_{\text{rms}}^2\right)$ represents the <strong>average translational kinetic energy of a single gas molecule</strong>.
+                As per the definition of the <strong>absolute temperature scale</strong>, random motion of molecules &amp; hence average KE of each molecule is directly proportional to absolute temperature $T$:
+              </p>
+              <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 text-slate-200">
+                $$\left(\frac{1}{2} m v_{\text{rms}}^2\right) = C T \implies PV = \frac{2}{3} N (CT) = N \left(\frac{2}{3} C\right) T \implies \mathbf{PV = N k_B T}$$
+                $$\text{Since } N = n N_A \implies PV = n (N_A k_B) T \implies \mathbf{PV = nRT} \quad (\text{where } R = N_A k_B)$$
+              </div>
+            </div>
+            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-slate-400">Molecular Form</div>
+                <div class="text-base font-bold text-indigo-300 mt-1">$$PV = N k_B T$$</div>
+                <div class="text-[11px] text-slate-400">$k_B = 1.38 \times 10^{-23}\text{ J/K}$</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-slate-400">Molar Form</div>
+                <div class="text-base font-bold text-emerald-300 mt-1">$$PV = n R T$$</div>
+                <div class="text-[11px] text-slate-400">$R = 8.31 \approx \frac{25}{3}\text{ J/mol}\cdot\text{K}$</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-slate-400">Density Form (Page 6)</div>
+                <div class="text-base font-bold text-amber-300 mt-1">$$\rho = \frac{P M_0}{R T}$$</div>
+                <div class="text-[11px] text-slate-400">Since $n = \frac{M}{M_0}$ and $\rho = \frac{M}{V}$</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-slate-400">Number Density ($\rho_n$)</div>
+                <div class="text-base font-bold text-sky-300 mt-1">$$\rho_n = \frac{N}{V} = \frac{P}{k_B T}$$</div>
+                <div class="text-[11px] text-slate-400">Molecules per unit volume</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Classical Gas Laws Grid with Notebook Graphs (Page 5) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- 1. Boyle's Law -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-indigo-400 uppercase">1. Boyle's Law</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-300">$T, n = \text{const}$</span>
+              </div>
+              <p class="text-xs text-slate-300">For an enclosed gas at constant temperature, product of $P$ and $V$ remains constant:</p>
+              <div class="text-xs font-mono text-white bg-slate-950/80 p-2 rounded-lg border border-slate-800 text-center">
+                $PV = \text{const} \implies P_i V_i = P_f V_f$
+              </div>
+            </div>
+            <!-- SVG Graph: Rectangular Hyperbola -->
+            <div class="bg-slate-950/90 rounded-xl p-2 border border-slate-800 flex flex-col items-center">
+              <svg viewBox="0 0 150 100" class="w-36 h-24">
+                <line x1="25" y1="82" x2="135" y2="82" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="25" y1="82" x2="25" y2="12" stroke="#64748b" stroke-width="1.5"/>
+                <text x="14" y="20" fill="#cbd5e1" font-size="10" font-weight="bold">P</text>
+                <text x="130" y="95" fill="#cbd5e1" font-size="10" font-weight="bold">V</text>
+                <path d="M 35 20 Q 45 70 125 74" fill="none" stroke="#818cf8" stroke-width="2.2"/>
+                <text x="58" y="42" fill="#a5b4fc" font-size="8.5" font-family="monospace">T = const</text>
+              </svg>
+              <span class="text-[10px] text-indigo-300 font-mono">Curve: Rectangular Hyperbola</span>
+            </div>
+          </div>
+
+          <!-- 2. Charles's Law -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-400 uppercase">2. Charles's Law</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300">$P, n = \text{const}$</span>
+              </div>
+              <p class="text-xs text-slate-300">For an enclosed gas at constant pressure, volume is directly proportional to temperature:</p>
+              <div class="text-xs font-mono text-white bg-slate-950/80 p-2 rounded-lg border border-slate-800 text-center">
+                $V \propto T \implies \dfrac{V_i}{T_i} = \dfrac{V_f}{T_f}$
+              </div>
+            </div>
+            <!-- SVG Graph: V vs T -->
+            <div class="bg-slate-950/90 rounded-xl p-2 border border-slate-800 flex flex-col items-center">
+              <svg viewBox="0 0 150 100" class="w-36 h-24">
+                <line x1="25" y1="82" x2="135" y2="82" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="25" y1="82" x2="25" y2="12" stroke="#64748b" stroke-width="1.5"/>
+                <text x="14" y="20" fill="#cbd5e1" font-size="10" font-weight="bold">V</text>
+                <text x="130" y="95" fill="#cbd5e1" font-size="10" font-weight="bold">T</text>
+                <line x1="25" y1="82" x2="42" y2="69" stroke="#34d399" stroke-width="2" stroke-dasharray="3,2"/>
+                <line x1="42" y1="69" x2="120" y2="18" stroke="#34d399" stroke-width="2.2"/>
+                <text x="65" y="60" fill="#6ee7b7" font-size="8.5" font-family="monospace">at const P</text>
+              </svg>
+              <span class="text-[10px] text-emerald-300 font-mono">Straight line through origin</span>
+            </div>
+          </div>
+
+          <!-- 3. Gay-Lussac's Law -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-400 uppercase">3. Gay-Lussac's Law</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/15 text-amber-300">$V, n = \text{const}$</span>
+              </div>
+              <p class="text-xs text-slate-300">For an enclosed gas at constant volume, pressure is directly proportional to temperature:</p>
+              <div class="text-xs font-mono text-white bg-slate-950/80 p-2 rounded-lg border border-slate-800 text-center">
+                $P \propto T \implies \dfrac{P_i}{T_i} = \dfrac{P_f}{T_f}$
+              </div>
+            </div>
+            <!-- SVG Graph: P vs T -->
+            <div class="bg-slate-950/90 rounded-xl p-2 border border-slate-800 flex flex-col items-center">
+              <svg viewBox="0 0 150 100" class="w-36 h-24">
+                <line x1="25" y1="82" x2="135" y2="82" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="25" y1="82" x2="25" y2="12" stroke="#64748b" stroke-width="1.5"/>
+                <text x="14" y="20" fill="#cbd5e1" font-size="10" font-weight="bold">P</text>
+                <text x="130" y="95" fill="#cbd5e1" font-size="10" font-weight="bold">T</text>
+                <line x1="25" y1="82" x2="42" y2="69" stroke="#fbbf24" stroke-width="2" stroke-dasharray="3,2"/>
+                <line x1="42" y1="69" x2="120" y2="18" stroke="#fbbf24" stroke-width="2.2"/>
+                <text x="65" y="60" fill="#fde68a" font-size="8.5" font-family="monospace">at const V</text>
+              </svg>
+              <span class="text-[10px] text-amber-300 font-mono">Straight line through origin</span>
+            </div>
+          </div>
+
+          <!-- 4. Avogadro's Law -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-400 uppercase">4. Avogadro's Law</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/15 text-purple-300">$P, T = \text{const}$</span>
+              </div>
+              <p class="text-xs text-slate-300">At same $P$ &amp; $T$, equal volumes of all ideal gases contain the <strong>same number of molecules</strong>:</p>
+              <div class="text-xs font-mono text-white bg-slate-950/80 p-2 rounded-lg border border-slate-800 text-center">
+                $V \propto N \quad (\text{or } V \propto n)$
+              </div>
+            </div>
+            <!-- SVG Graph: V vs N -->
+            <div class="bg-slate-950/90 rounded-xl p-2 border border-slate-800 flex flex-col items-center">
+              <svg viewBox="0 0 150 100" class="w-36 h-24">
+                <line x1="25" y1="82" x2="135" y2="82" stroke="#64748b" stroke-width="1.5"/>
+                <line x1="25" y1="82" x2="25" y2="12" stroke="#64748b" stroke-width="1.5"/>
+                <text x="14" y="20" fill="#cbd5e1" font-size="10" font-weight="bold">V</text>
+                <text x="128" y="95" fill="#cbd5e1" font-size="10" font-weight="bold">N</text>
+                <line x1="25" y1="82" x2="120" y2="18" stroke="#c084fc" stroke-width="2.2"/>
+                <text x="58" y="64" fill="#d8b4fe" font-size="8" font-family="monospace">const P &amp; T</text>
+              </svg>
+              <span class="text-[10px] text-purple-300 font-mono">1 mol @ STP = 22.4 L</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 4: MOLECULAR SPEEDS & MAXWELL DISTRIBUTION (PP. 7-10)     -->
+      <!-- ================================================================= -->
+      <section id="sec-4" class="searchable-section space-y-4 print-break-avoid">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-xs font-bold flex items-center justify-center">04</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">Molecular Speeds ($v_{\text{mp}}, v_{\text{avg}}, v_{\text{rms}}$) &amp; Maxwell's Distribution Law</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 7 – 10</span>
+        </div>
+
+        <!-- Comparison Table of the 3 Speeds -->
+        <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 overflow-hidden">
+          <div class="p-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider">🚀 Complete Comparison of Molecular Speeds</h3>
+            <div class="text-xs font-mono px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 font-semibold">
+              Order: $v_{\text{rms}} > v_{\text{avg}} > v_{\text{mp}}$ &nbsp;|&nbsp; Ratio: $\sqrt{3} : \sqrt{\frac{8}{\pi}} : \sqrt{2} \approx 1.732 : 1.596 : 1.414$
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-slate-950/80 text-slate-400 border-b border-slate-800 uppercase font-mono text-[11px]">
+                  <th class="py-3 px-4">Speed Type</th>
+                  <th class="py-3 px-4">Discrete &amp; Calculus Definition</th>
+                  <th class="py-3 px-4">Molar Form ($R, M_0$)</th>
+                  <th class="py-3 px-4">Molecular Form ($k_B, m$)</th>
+                  <th class="py-3 px-4">Pressure-Density Form</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/70">
+                <tr class="hover:bg-slate-800/30">
+                  <td class="py-3.5 px-4 font-bold text-emerald-300">
+                    1. Most Probable Speed ($v_{\text{mp}}$)
+                    <div class="text-[11px] font-normal text-slate-400 mt-0.5">Modal speed possessed by max molecules; $\frac{d}{dv}\left(\frac{dN}{dv}\right) = 0$</div>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono">Peak of $\dfrac{dN}{dv}$ curve</td>
+                  <td class="py-3.5 px-4 font-mono text-sm font-bold text-white">$$\sqrt{\frac{2RT}{M_0}}$$</td>
+                  <td class="py-3.5 px-4 font-mono text-sm">$$\sqrt{\frac{2k_B T}{m}}$$</td>
+                  <td class="py-3.5 px-4 font-mono text-sm">$$\sqrt{\frac{2P}{\rho}}$$</td>
+                </tr>
+                <tr class="hover:bg-slate-800/30">
+                  <td class="py-3.5 px-4 font-bold text-sky-300">
+                    2. Average Speed ($v_{\text{avg}}$)
+                    <div class="text-[11px] font-normal text-slate-400 mt-0.5">Arithmetic mean of speeds of all molecules</div>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono">
+                    $$\frac{v_1+\dots+v_N}{N} = \frac{\sum v_i}{N} = \frac{\int v\,dN}{N} = \frac{\int v f\,dv}{N}$$
+                  </td>
+                  <td class="py-3.5 px-4 font-mono text-sm font-bold text-white">$$\sqrt{\frac{8RT}{\pi M_0}}$$</td>
+                  <td class="py-3.5 px-4 font-mono text-sm">$$\sqrt{\frac{8k_B T}{\pi m}}$$</td>
+                  <td class="py-3.5 px-4 font-mono text-sm">$$\sqrt{\frac{8P}{\pi \rho}}$$</td>
+                </tr>
+                <tr class="hover:bg-slate-800/30">
+                  <td class="py-3.5 px-4 font-bold text-indigo-300">
+                    3. RMS Speed ($v_{\text{rms}}$)
+                    <div class="text-[11px] font-normal text-slate-400 mt-0.5">Root of average of squares of speeds</div>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono">
+                    $$\sqrt{\frac{v_1^2+\dots+v_N^2}{N}} = \sqrt{\frac{\sum v_i^2}{N}} = \sqrt{\langle v^2 \rangle} = \sqrt{\frac{\int v^2\,dN}{N}}$$
+                  </td>
+                  <td class="py-3.5 px-4 font-mono text-sm font-bold text-white">$$\sqrt{\frac{3RT}{M_0}}$$</td>
+                  <td class="py-3.5 px-4 font-mono text-sm">$$\sqrt{\frac{3k_B T}{m}}$$</td>
+                  <td class="py-3.5 px-4 font-mono text-sm">$$\sqrt{\frac{3P}{\rho}}$$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Vector vs Scalar Conceptual Trap Alert (Page 7 Bottom) -->
+        <div class="card-surface rounded-2xl bg-gradient-to-r from-rose-950/40 via-slate-900 to-indigo-950/40 border border-rose-500/30 p-4 sm:p-5">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-300 mb-3">
+            <span>⚠️ High-Yield Concept Trap: Vector Velocity/Momentum vs. Scalar Speed (Page 7 Notes)</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div class="font-semibold text-slate-300">1. Average Velocity (Sample)</div>
+              <div class="text-sm font-bold text-rose-400 mt-1">$\langle \vec{v} \rangle = \vec{0}$</div>
+              <p class="text-[11px] text-slate-400 mt-1">Because molecules move randomly in all possible directions.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div class="font-semibold text-slate-300">2. Avg Velocity (1 Molecule)</div>
+              <div class="text-sm font-bold text-rose-400 mt-1">$\langle \vec{v}_{\text{single}} \rangle = \vec{0}$</div>
+              <p class="text-[11px] text-slate-400 mt-1">Over a long period of time, net displacement/velocity is zero.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div class="font-semibold text-slate-300">3. Average Speed of Gas</div>
+              <div class="text-sm font-bold text-emerald-400 mt-1">$v_{\text{avg}} = \langle |\vec{v}| \rangle \neq 0$</div>
+              <p class="text-[11px] text-slate-400 mt-1">Speed is always positive ($v_{\text{avg}} = \sqrt{8RT/\pi M_0}$).</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div class="font-semibold text-slate-300">4. Average Momentum</div>
+              <div class="text-sm font-bold text-amber-300 mt-1">$\langle \vec{P} \rangle = \vec{0}$ &nbsp;but&nbsp; $\langle |\vec{P}| \rangle \neq 0$</div>
+              <p class="text-[11px] text-slate-400 mt-1">Avg of magnitude of momentum: $\langle |\vec{P}| \rangle = m v_{\text{avg}} \neq 0$.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maxwell's Speed Distribution Graphs & Observations (Pages 8-9) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Left: Two SVG Graphs (Standard Curve + Effect of T) -->
+          <div class="lg:col-span-6 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-4">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider">📊 Maxwell Distribution Graphs (Pages 8–9)</h3>
+
+            <!-- Graph 1: Standard dN/dv vs v showing v_mp, v_avg, v_rms and dN strip -->
+            <div class="bg-slate-950/90 rounded-xl p-3 border border-slate-800">
+              <div class="text-xs font-semibold text-slate-300 mb-1">Graph 1: $f = \frac{dN}{dv}$ vs Speed $v$ (Area = $N$)</div>
+              <svg viewBox="0 0 360 175" class="w-full h-40">
+                <!-- Axes -->
+                <line x1="40" y1="145" x2="340" y2="145" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="40" y1="145" x2="40" y2="15" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="8" y="25" fill="#e2e8f0" font-size="10" font-family="monospace">f=dN/dv</text>
+                <text x="332" y="160" fill="#e2e8f0" font-size="11" font-weight="bold">v</text>
+
+                <!-- Shaded strip between v and v+dv -->
+                <path d="M 215 72 L 215 145 L 228 145 L 228 84 Z" fill="rgba(244, 63, 94, 0.35)" stroke="#f43f5e" stroke-width="1"/>
+                <text x="232" y="80" fill="#fda4af" font-size="9" font-family="monospace">Area = dN = f·dv</text>
+                <text x="210" y="157" fill="#fda4af" font-size="8.5" font-family="monospace">v  v+dv</text>
+
+                <!-- Maxwell Curve -->
+                <path d="M 40 145 C 65 142, 95 28, 135 28 C 175 28, 225 118, 325 143" fill="rgba(99, 102, 241, 0.12)" stroke="#818cf8" stroke-width="2.5"/>
+
+                <!-- Vertical markers for v_mp, v_avg, v_rms -->
+                <!-- v_mp at peak x=135 -->
+                <line x1="135" y1="28" x2="135" y2="145" stroke="#34d399" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <circle cx="135" cy="28" r="3.5" fill="#34d399"/>
+                <text x="122" y="158" fill="#34d399" font-size="9.5" font-family="monospace" font-weight="bold">v_mp</text>
+
+                <!-- v_avg at x=158 -->
+                <line x1="158" y1="36" x2="158" y2="145" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <circle cx="158" cy="36" r="3.5" fill="#38bdf8"/>
+                <text x="150" y="169" fill="#38bdf8" font-size="9.5" font-family="monospace" font-weight="bold">v_avg</text>
+
+                <!-- v_rms at x=178 -->
+                <line x1="178" y1="48" x2="178" y2="145" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <circle cx="178" cy="48" r="3.5" fill="#fbbf24"/>
+                <text x="174" y="158" fill="#fbbf24" font-size="9.5" font-family="monospace" font-weight="bold">v_rms</text>
+              </svg>
+            </div>
+
+            <!-- Graph 2: Temperature Dependence (T2 > T1) -->
+            <div class="bg-slate-950/90 rounded-xl p-3 border border-slate-800">
+              <div class="text-xs font-semibold text-slate-300 mb-1">Graph 2: Effect of Increasing Temperature ($T_2 > T_1$)</div>
+              <svg viewBox="0 0 360 155" class="w-full h-36">
+                <line x1="40" y1="130" x2="340" y2="130" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="40" y1="130" x2="40" y2="12" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="10" y="22" fill="#e2e8f0" font-size="10" font-family="monospace">dN/dv</text>
+                <text x="332" y="144" fill="#e2e8f0" font-size="11" font-weight="bold">v</text>
+
+                <!-- T1 Curve (Higher Peak, Left) -->
+                <path d="M 40 130 C 65 126, 90 22, 125 22 C 160 22, 200 112, 280 129" fill="none" stroke="#38bdf8" stroke-width="2.2"/>
+                <line x1="125" y1="22" x2="125" y2="130" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3,3"/>
+                <text x="108" y="144" fill="#38bdf8" font-size="9" font-family="monospace">(v_mp)₁</text>
+                <text x="135" y="30" fill="#38bdf8" font-size="10" font-weight="bold">T₁</text>
+
+                <!-- T2 Curve (Flatter Peak, Shifted Right) -->
+                <path d="M 40 130 C 75 128, 125 52, 175 52 C 225 52, 275 110, 335 128" fill="none" stroke="#f43f5e" stroke-width="2.2"/>
+                <line x1="175" y1="52" x2="175" y2="130" stroke="#f43f5e" stroke-width="1.2" stroke-dasharray="3,3"/>
+                <text x="162" y="144" fill="#f43f5e" font-size="9" font-family="monospace">(v_mp)₂</text>
+                <text x="205" y="55" fill="#f43f5e" font-size="10" font-weight="bold">T₂ (T₂ &gt; T₁)</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Right: All Key Observations from Maxwell's Curve -->
+          <div class="lg:col-span-6 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between space-y-3">
+            <div class="space-y-3">
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider">🔍 Key Observations from Notebook (Pages 8–9)</h3>
+              <ul class="space-y-2.5 text-xs text-slate-300">
+                <li class="flex gap-2">
+                  <span class="text-indigo-400 font-bold">1.</span>
+                  <span>Here $dN$ is the number of molecules having speed between $v$ and $(v+dv)$. On the Y-axis, we plot $f = \dfrac{dN}{dv}$.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-indigo-400 font-bold">2.</span>
+                  <span>The number of molecules having <strong>very low or very high speeds is very small</strong>; most molecules possess speeds close to a particular modal value ($v_{\text{mp}}$).</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-indigo-400 font-bold">3.</span>
+                  <span>At the peak ($v = v_{\text{mp}}$), $\dfrac{dN}{dv}$ is maximum, so its slope is zero: $\mathbf{\dfrac{d}{dv}\left(\dfrac{dN}{dv}\right) = 0 \text{ at } v = v_{\text{mp}}}$.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-indigo-400 font-bold">4.</span>
+                  <span>
+                    <strong class="text-white">Area Under Curve (Standard Y-axis $\frac{dN}{dv}$):</strong>
+                    Gives the <strong>total number of molecules ($N$)</strong> present in the sample:
+                    $$\text{Area} = \int_0^\infty f\,dv = \int_0^\infty \frac{dN}{dv}\,dv = \int dN = \mathbf{N}$$
+                  </span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-amber-400 font-bold">5.</span>
+                  <span class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 block w-full text-slate-200">
+                    <strong class="text-amber-300">Normalized Y-Axis Exam Trap (Page 9):</strong> Sometimes on the Y-axis, instead of $\left(\dfrac{dN}{dv}\right)$, the fraction $\mathbf{\left(\dfrac{1}{N}\dfrac{dN}{dv}\right)}$ is plotted. In this case, the <strong class="text-white underline">area under the given graph is $1$</strong>!
+                  </span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-indigo-400 font-bold">6.</span>
+                  <span>
+                    <strong class="text-white">Effect of Increasing Temperature ($T_2 > T_1$):</strong> On increasing $T$, $v_{\text{mp}}$ increases ($(v_{\text{mp}})_2 > (v_{\text{mp}})_1$), so the <strong>peak shifts to the right</strong> and the <strong>graph flattens out</strong> (peak height decreases to keep total area $N$ constant).
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-between">
+              <span class="text-xs text-indigo-200">Want to drag sliders for $T$ and gas molar mass $M_0$ live?</span>
+              <button onclick="switchTab('simulator')" class="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">
+                Open Interactive Lab →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 5: MEAN FREE PATH (λ) & RELAXATION TIME (τ) (PP. 10-12)   -->
+      <!-- ================================================================= -->
+      <section id="sec-5" class="searchable-section space-y-4 print-break-avoid">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 font-mono text-xs font-bold flex items-center justify-center">05</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">Mean Free Path ($\lambda$) &amp; Relaxation Time ($\tau$)</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 10 – 12</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Left: Definitions, Collision Cylinder SVG & Derivation -->
+          <div class="lg:col-span-7 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                <div class="font-bold text-purple-300">1. Mean Free Path ($\lambda$)</div>
+                <p class="text-slate-300 mt-1">Average distance covered by a molecule between two successive collisions:</p>
+                <div class="font-mono text-white mt-1.5">$$\lambda = \frac{L_1 + L_2 + \dots + L_N}{N}$$</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                <div class="font-bold text-sky-300">2. Relaxation Time ($\tau$)</div>
+                <p class="text-slate-300 mt-1">Average time spent by a molecule between two successive collisions:</p>
+                <div class="font-mono text-white mt-1.5">$$\tau = \frac{t_1 + t_2 + \dots + t_N}{N}$$</div>
+              </div>
+            </div>
+
+            <!-- SVG Collision Cylinder Diagram (Page 11) -->
+            <div class="bg-slate-950/90 rounded-xl p-3 border border-slate-800 flex flex-col sm:flex-row items-center gap-4">
+              <svg viewBox="0 0 280 120" class="w-64 h-28 shrink-0">
+                <!-- Cylinder body -->
+                <ellipse cx="45" cy="60" rx="14" ry="38" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.5"/>
+                <line x1="45" y1="22" x2="225" y2="22" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <line x1="45" y1="98" x2="225" y2="98" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <ellipse cx="225" cy="60" rx="14" ry="38" fill="rgba(168, 85, 247, 0.1)" stroke="#a855f7" stroke-width="1.5"/>
+
+                <!-- Radius = d marker -->
+                <line x1="45" y1="60" x2="45" y2="22" stroke="#34d399" stroke-width="1.5"/>
+                <text x="50" y="44" fill="#34d399" font-size="10" font-family="monospace" font-weight="bold">r = d</text>
+
+                <!-- Moving molecule of diameter d at center -->
+                <circle cx="80" cy="60" r="16" fill="rgba(56, 189, 248, 0.25)" stroke="#38bdf8" stroke-width="1.8"/>
+                <line x1="80" y1="44" x2="80" y2="76" stroke="#38bdf8" stroke-width="1.2"/>
+                <text x="72" y="63" fill="#e0f2fe" font-size="9" font-family="monospace">d</text>
+
+                <!-- Velocity arrow -->
+                <line x1="96" y1="60" x2="145" y2="60" stroke="#fbbf24" stroke-width="2"/>
+                <polyline points="139,56 145,60 139,64" fill="none" stroke="#fbbf24" stroke-width="2"/>
+                <text x="108" y="53" fill="#fbbf24" font-size="9.5" font-family="monospace">v_avg</text>
+
+                <!-- Grazing target molecule at top edge -->
+                <circle cx="175" cy="22" r="16" fill="rgba(244, 63, 94, 0.25)" stroke="#f43f5e" stroke-width="1.5"/>
+                <circle cx="175" cy="22" r="2" fill="#f43f5e"/>
+
+                <!-- Length l = v_avg * dt -->
+                <line x1="45" y1="110" x2="225" y2="110" stroke="#cbd5e1" stroke-width="1.2"/>
+                <text x="95" y="118" fill="#cbd5e1" font-size="9.5" font-family="monospace">l = v_avg · Δt</text>
+              </svg>
+              <div class="text-xs text-slate-300 space-y-1">
+                <div class="font-bold text-white">Collision Cylinder (Page 11)</div>
+                <p>A molecule of diameter $d$ collides with any other molecule whose center lies within a cylinder of <strong class="text-emerald-300">radius $d$</strong> (cross-sectional area $A = \pi d^2$) and length $l = v_{\text{avg}}\Delta t$.</p>
+              </div>
+            </div>
+
+            <!-- Step-by-Step Derivation -->
+            <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800 text-xs space-y-1.5">
+              <div class="font-bold text-purple-300 uppercase tracking-wider mb-1">Derivation &amp; Relative Velocity Correction (Pages 11–12)</div>
+              <ol class="list-decimal list-inside space-y-1.5 text-slate-300">
+                <li><strong class="text-white">Number Density:</strong> $\rho_n = \dfrac{N}{V} \implies N = \rho_n V$ (molecules per unit volume).</li>
+                <li><strong class="text-white">Volume swept in $\Delta t$:</strong> $V_{\text{cyl}} = (\pi d^2) l = \pi d^2 v_{\text{avg}} \Delta t$.</li>
+                <li><strong class="text-white">No. of collisions in $\Delta t$:</strong> $N_{\text{coll}} = \rho_n V_{\text{cyl}} = \rho_n \pi d^2 v_{\text{avg}} \Delta t$.</li>
+                <li><strong class="text-white">Collision Frequency ($f$):</strong> $f = \dfrac{N_{\text{coll}}}{\Delta t} = \rho_n \pi d^2 v_{\text{avg}} \implies \tau_{\text{uncorrected}} = \dfrac{1}{f} = \dfrac{1}{\rho_n \pi d^2 v_{\text{avg}}}$.</li>
+                <li>
+                  <strong class="text-emerald-300">Relative Motion Correction (Page 12):</strong> Since target molecules are also moving, replace $v_{\text{avg}}$ with average relative velocity $\mathbf{(v_{\text{rel}})_{\text{avg}} = \sqrt{2}\,v_{\text{avg}}}$!
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Right: Final Boxed Formulas for λ and τ -->
+          <div class="lg:col-span-5 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider">⚡ Corrected Master Equations (Page 12)</h3>
+
+              <div class="formula-box p-3.5 rounded-xl space-y-2">
+                <div class="text-xs font-semibold text-indigo-300">1. Fundamental Relation:</div>
+                <div class="text-sm font-bold text-white">$$\lambda = v_{\text{avg}} \cdot \tau$$</div>
+              </div>
+
+              <div class="formula-box p-3.5 rounded-xl space-y-2">
+                <div class="text-xs font-semibold text-sky-300">2. Corrected Relaxation Time ($\tau$):</div>
+                <div class="text-sm font-bold text-white">$$\tau = \frac{1}{\sqrt{2}\,\pi\,\rho_n\,d^2\,v_{\text{avg}}}$$</div>
+              </div>
+
+              <div class="formula-box p-3.5 rounded-xl space-y-2">
+                <div class="text-xs font-semibold text-emerald-300">3. Mean Free Path ($\lambda$) — Density &amp; $P, T$ Forms:</div>
+                <div class="text-sm font-bold text-white">
+                  $$\lambda = \frac{1}{\sqrt{2}\,\pi\,\rho_n\,d^2} = \frac{k_B T}{\sqrt{2}\,\pi\,d^2\,P}$$
+                </div>
+                <div class="text-[11px] text-slate-400">Since $PV = N k_B T \implies \rho_n = \dfrac{N}{V} = \dfrac{P}{k_B T}$</div>
+              </div>
+            </div>
+
+            <!-- Proportionalities Cheat Box -->
+            <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-xs space-y-1.5">
+              <div class="font-bold text-amber-300 uppercase tracking-wide">📌 Proportionalities to Remember</div>
+              <div class="grid grid-cols-2 gap-2 text-slate-300 pt-1">
+                <div>• $\lambda \propto \dfrac{1}{d^2}$ (molecular size)</div>
+                <div>• $\lambda \propto \dfrac{1}{\rho_n}$ (number density)</div>
+                <div>• At const $P$: $\lambda \propto T$</div>
+                <div>• At const $T$: $\lambda \propto \dfrac{1}{P}$</div>
+                <div class="col-span-2 text-emerald-300">• In a rigid sealed container ($N, V$ const): $\lambda$ is <strong>independent of $T$ and $P$</strong>!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 6: DEGREES OF FREEDOM, EQUIPARTITION & INTERNAL ENERGY    -->
+      <!-- ================================================================= -->
+      <section id="sec-6" class="searchable-section space-y-4 print-break-avoid">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-300 font-mono text-xs font-bold flex items-center justify-center">06</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">Degrees of Freedom ($f$), Equipartition of Energy &amp; Internal Energy ($U$)</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 13 – 16</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Left: DOF Definition, Table & Vibrational DOF -->
+          <div class="lg:col-span-7 card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-4">
+            <div class="space-y-1.5">
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider">🎯 Degrees of Freedom (D.F. or $f$) — Dual Definition (Page 13)</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                1. Number of <strong>independent modes</strong> in which a given gas molecule can possess energy.<br/>
+                2. Number of <strong>independent squared terms</strong> in the expression for energy of a given molecule.
+              </p>
+            </div>
+
+            <!-- Breakdown of Monoatomic, Diatomic, Polyatomic -->
+            <div class="overflow-x-auto rounded-xl border border-slate-800">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="bg-slate-950 text-slate-400 uppercase font-mono text-[11px] border-b border-slate-800">
+                    <th class="py-2.5 px-3">Atomicity / Gas Type</th>
+                    <th class="py-2.5 px-3 text-center">Trans ($f_t$)</th>
+                    <th class="py-2.5 px-3 text-center">Rot ($f_r$)</th>
+                    <th class="py-2.5 px-3 text-center">Total ($f$)</th>
+                    <th class="py-2.5 px-3">Energy Expression &amp; Reason (Pages 13–14)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/80 bg-slate-950/40">
+                  <tr>
+                    <td class="py-2.5 px-3 font-bold text-emerald-300">Monoatomic<br/><span class="text-[10px] font-normal text-slate-400">($\text{He, Ne, Ar}$)</span></td>
+                    <td class="py-2.5 px-3 text-center font-mono">3</td>
+                    <td class="py-2.5 px-3 text-center font-mono">0</td>
+                    <td class="py-2.5 px-3 text-center font-mono font-bold text-white text-sm">3</td>
+                    <td class="py-2.5 px-3 text-[11px] text-slate-300">
+                      $K = \frac{1}{2}mv_x^2 + \frac{1}{2}mv_y^2 + \frac{1}{2}mv_z^2$ (Point mass $\implies I=0$)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 px-3 font-bold text-sky-300">Diatomic / Linear Polyatomic<br/><span class="text-[10px] font-normal text-slate-400">($\text{H}_2, \text{O}_2, \text{N}_2$)</span></td>
+                    <td class="py-2.5 px-3 text-center font-mono">3</td>
+                    <td class="py-2.5 px-3 text-center font-mono">2</td>
+                    <td class="py-2.5 px-3 text-center font-mono font-bold text-white text-sm">5</td>
+                    <td class="py-2.5 px-3 text-[11px] text-slate-300">
+                      Along bond axis $I_x = 0$, while $I_y \neq 0, I_z \neq 0$:<br/>
+                      $K = (\frac{1}{2}mv_x^2 + \frac{1}{2}mv_y^2 + \frac{1}{2}mv_z^2) + (\frac{1}{2}I_y\omega_y^2 + \frac{1}{2}I_z\omega_z^2)$
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 px-3 font-bold text-purple-300">Non-Linear Polyatomic<br/><span class="text-[10px] font-normal text-slate-400">($\text{CH}_4, \text{NH}_3, \text{SO}_2$)</span></td>
+                    <td class="py-2.5 px-3 text-center font-mono">3</td>
+                    <td class="py-2.5 px-3 text-center font-mono">3</td>
+                    <td class="py-2.5 px-3 text-center font-mono font-bold text-white text-sm">6</td>
+                    <td class="py-2.5 px-3 text-[11px] text-slate-300">
+                      Moment of inertia is non-zero along all 3 axes ($I_x, I_y, I_z \neq 0$).
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Vibrational Degrees of Freedom & CO2 Exception (Pages 14-15) -->
+            <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-amber-300 uppercase tracking-wider">〰️ Vibrational Degrees of Freedom (Pages 14–15)</span>
+                <span class="font-mono text-[11px] text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">1 Mode = 2 DOF</span>
+              </div>
+              <p class="text-slate-300 leading-relaxed">
+                Chemical bonds in diatomic/polyatomic molecules are modeled mathematically like a <strong>spring</strong> ($\text{O}\!-\!\text{www}\!-\!\text{O}$). Vibrating atoms possess both kinetic &amp; potential energy:
+              </p>
+              <div class="font-mono text-white bg-slate-900 p-2 rounded-lg border border-slate-800 text-center">
+                $$E_{\text{vib}} = \text{KE} + \text{PE} = \frac{1}{2}\mu v_{\text{rel}}^2 + \frac{1}{2}kr^2 \implies \mathbf{2\text{ D.O.F. per mode of vibration (1 for KE + 1 for PE)}}$$
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <div class="p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+                  <strong class="text-white">When to count?</strong> Effective only at <strong>higher temperatures</strong>; <span class="underline">not considered</span> unless explicitly stated in the question.
+                </div>
+                <div class="p-2.5 rounded-lg bg-rose-500/15 border border-rose-500/30 text-rose-200">
+                  <strong class="text-rose-300">🚨 $\text{CO}_2$ Exception (Page 15):</strong> $\text{CO}_2$ is an exception — in $\text{CO}_2$, vibrational degrees of freedom are activated <strong>even at room temperature</strong>!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Law of Equipartition of Energy & Internal Energy (Pages 15-16) -->
+          <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
+            <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-white uppercase tracking-wider">⚖️ Law of Equipartition of Energy</h3>
+                <span class="text-[11px] font-mono text-slate-400">Page 15</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                The average energy possessed by a molecule at temperature $T$ is distributed <strong>equally in each degree of freedom</strong>:
+              </p>
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                  <span class="text-slate-300">1. Avg energy of 1 molecule <strong>per DOF</strong>:</span>
+                  <span class="font-mono text-sm font-bold text-indigo-300">$\dfrac{1}{2} k_B T$</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                  <span class="text-slate-300">2. Total avg energy of <strong>1 molecule</strong> ($f$ DOF):</span>
+                  <span class="font-mono text-sm font-bold text-emerald-300">$\dfrac{f}{2} k_B T$</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                  <span class="text-slate-300">3. Total energy of <strong>1 mole</strong> ($N_A \cdot \frac{f}{2}k_B T$):</span>
+                  <span class="font-mono text-sm font-bold text-amber-300">$\dfrac{f}{2} R T$</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
+                  <span class="text-slate-300">4. Total energy of <strong>sample ($n$ moles)</strong>:</span>
+                  <span class="font-mono text-sm font-bold text-sky-300">$\dfrac{f}{2} n R T$</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Internal Energy of Gas (Pages 15-16) -->
+            <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 flex-1">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-white uppercase tracking-wider">🔥 Internal Energy of Gas ($U$ or $\text{IE}$)</h3>
+                <span class="text-[11px] font-mono text-slate-400">Pages 15–16</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Internal energy of a gas is the energy possessed by it due to random motion of its molecules &amp; PE due to intermolecular attractions:
+              </p>
+              <div class="p-3 rounded-xl bg-slate-950/90 border border-slate-800 text-[11px] font-mono text-slate-200 space-y-1">
+                <div class="text-indigo-300 font-bold">General Real Gas:</div>
+                <div>$\text{IE} = \underbrace{\left(\text{Trans KE} + \text{Rot KE} + \text{Vib KE} + \text{Vib PE}\right)}_{\text{Energy due to random motion}} + \text{PE}_{\text{intermolecular attractions}}$</div>
+              </div>
+              <div class="formula-box p-3.5 rounded-xl">
+                <div class="text-xs font-bold text-emerald-300">For an Ideal Gas ($\text{PE}_{\text{intermolecular}} = 0$):</div>
+                <div class="text-base font-bold text-white mt-1">
+                  $$U = \frac{f}{2} nRT \quad \text{and} \quad \Delta U = \frac{f}{2} nR\Delta T$$
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 7: DULONG-PETIT LAW (SOLIDS) & WATER SPECIFIC HEAT        -->
+      <!-- ================================================================= -->
+      <section id="sec-7" class="searchable-section space-y-4 print-break-avoid">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-teal-500/20 border border-teal-500/40 text-teal-300 font-mono text-xs font-bold flex items-center justify-center">07</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">Dulong-Petit Law (Crystalline Solids) &amp; Specific Heat of Water ($\text{H}_2\text{O}$)</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 16 – 17</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Left: Dulong-Petit Law for Crystalline Solids (Pages 16-17) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-emerald-300 uppercase tracking-wider">💎 Dulong-Petit Law (Crystalline Solids)</h3>
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">$f = 6 \implies C = 3R$</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <strong class="text-white">Statement:</strong> According to this law, the molar specific heat capacity of crystalline solids at room/higher temperatures is equal to $\mathbf{3R}$.
+              <br/><span class="text-slate-400">(Molar specific heat capacity $C = \frac{Q}{n\Delta T}$ is the heat required for unit rise in temperature of $1\text{ mole}$ of substance).</span>
+            </p>
+            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs space-y-1.5">
+              <div class="font-bold text-white">Complete Proof (Page 16):</div>
+              <ul class="list-disc list-inside space-y-1 text-slate-300">
+                <li>In solids, translational &amp; rotational motions are almost absent $\implies$ <strong>only vibrational degrees of freedom</strong> are significant.</li>
+                <li>Each solid atom has <strong>$3$ modes of vibration</strong> (along $x, y, z$ axes).</li>
+                <li>Since there are $2$ DOF corresponding to each mode of vibration ($1$ KE + $1$ PE), total DOF per solid molecule/atom is $\mathbf{f = 3 \times 2 = 6}$.</li>
+                <li>Internal energy of solid: $U = \dfrac{f}{2} nRT = \dfrac{6}{2} nRT = \mathbf{3nRT}$.</li>
+                <li>Heat supplied during heating: $Q = \Delta U = 3nR\Delta T$.</li>
+              </ul>
+              <div class="formula-box p-2.5 rounded-lg mt-2 text-center">
+                $$C = \frac{Q}{n\Delta T} = \frac{3nR\Delta T}{n\Delta T} = \mathbf{3R} \quad \Bigg| \quad \text{Specific Heat per unit mass: } \mathbf{S = \frac{C}{M_0} = \frac{3R}{M_0}}$$
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Molar & Specific Heat Capacity of Water (Page 17) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-sky-300 uppercase tracking-wider">💧 Molar &amp; Specific Heat Capacity of Water ($\text{H}_2\text{O}$)</h3>
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-sky-500/15 text-sky-300 border border-sky-500/30">$f = 18 \implies C = 9R$</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              In liquid water ($\text{H}_2\text{O}$), rotational &amp; translational energies are insignificant and <strong>only vibrational degrees of freedom are significant</strong>.
+            </p>
+            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs space-y-1.5">
+              <div class="font-bold text-white">Complete Derivation (Page 17):</div>
+              <ul class="list-disc list-inside space-y-1 text-slate-300">
+                <li>Just like solids, each atom has $6$ vibrational degrees of freedom ($3\text{ modes} \times 2$).</li>
+                <li>Since a water molecule ($\text{H}_2\text{O}$) has <strong>$3$ atoms</strong> ($2\text{ H} + 1\text{ O}$), it has a total of $\mathbf{f = 3 \times 6 = 18}$ degrees of freedom!</li>
+                <li>Internal energy: $U = \dfrac{f}{2} nRT = \dfrac{18}{2} nRT = \mathbf{9nRT} \implies Q = \Delta U = 9nR\Delta T$.</li>
+                <li>Molar Heat Capacity of Water: $C = \dfrac{Q}{n\Delta T} = \dfrac{9nR\Delta T}{n\Delta T} = \mathbf{9R}$.</li>
+              </ul>
+              <div class="formula-box p-2.5 rounded-lg mt-2 text-center">
+                $$S = \frac{C}{M_0} = \frac{9R}{M_0} = \frac{9 \times (2\text{ cal/mol}\cdot\text{K})}{18\text{ g/mol}} = \mathbf{1\text{ cal/g}\cdot\text{K}}$$
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SECTION 8: ALL 6 SOLVED NOTEBOOK PROBLEMS (PP. 6 & 10)            -->
+      <!-- ================================================================= -->
+      <section id="sec-8" class="searchable-section space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-xs font-bold flex items-center justify-center">08</span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">All 6 Solved Problems from Notebook (Step-by-Step)</h2>
+          </div>
+          <span class="text-xs font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">Pages 6 &amp; 10</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Problem 1: Density of Ideal Gas (Page 6) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 print-break-avoid">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-indigo-500/20 text-indigo-300">Problem 1 • Page 6</span>
+              <span class="text-xs text-slate-400">Density of Ideal Gas</span>
+            </div>
+            <p class="text-sm font-semibold text-white">
+              Q. Find the density ($\rho$) of a gas having molar mass $M_0$ at pressure $P$ and temperature $T$.
+            </p>
+            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs space-y-1.5 text-slate-300">
+              <div>• From Ideal Gas Equation: $PV = nRT$</div>
+              <div>• Substituting number of moles $n = \dfrac{M}{M_0}$:</div>
+              <div>$$PV = \frac{M}{M_0} RT \implies \frac{P M_0}{RT} = \frac{M}{V}$$</div>
+              <div class="pt-1 text-emerald-300 font-bold text-sm">
+                $$\text{Answer: } \rho = \frac{M}{V} = \frac{P M_0}{RT}$$
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem 2: % Change in Temperature (Page 6) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 print-break-avoid">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-indigo-500/20 text-indigo-300">Problem 2 • Page 6</span>
+              <span class="text-xs text-slate-400">Percentage Change in $T$</span>
+            </div>
+            <p class="text-sm font-semibold text-white">
+              Q. Pressure of an ideal gas is increased by $20\%$ while its volume is increased by $40\%$. Find the percentage change in temperature of the gas.
+            </p>
+            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs space-y-1.5 text-slate-300">
+              <div>• Initial state: $PV = nRT$</div>
+              <div>• New Pressure: $P' = 1.2 P$ ($+20\%$) &nbsp;|&nbsp; New Volume: $V' = 1.4 V$ ($+40\%$)</div>
+              <div>• $(1.2 P)(1.4 V) = n R T' \implies 1.68 (PV) = n R T'$</div>
+              <div>• Comparing with $PV = nRT$: $T' = 1.68 T$</div>
+              <div class="pt-1 text-emerald-300 font-bold text-sm">
+                $$\text{Answer: } \% \text{ Change in Temperature} = +68\%$$
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem 3: Neon-Argon Mixture (Page 6) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 print-break-avoid">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-indigo-500/20 text-indigo-300">Problem 3 • Page 6</span>
+              <span class="text-xs text-slate-400">Gas Mixture Stoichiometry</span>
+            </div>
+            <p class="text-sm font-semibold text-white">
+              Q. A $28\text{ g}$ mixture of Neon ($\text{Ne} = 20$) and Argon ($\text{Ar} = 40$) occupies $30\text{ Litre}$ at $10^5\text{ Pa}$ and $300\text{ K}$. Find the mass of Neon in the mixture.
+            </p>
+            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs space-y-1.5 text-slate-300">
+              <div>• Let mass of Neon $= x\text{ g} \implies$ mass of Argon $= (28 - x)\text{ g}$.</div>
+              <div>• Total moles $n = n_{\text{Ne}} + n_{\text{Ar}} = \dfrac{x}{20} + \dfrac{28 - x}{40}$.</div>
+              <div>• Applying $PV = nRT$ with $V = 30 \times 10^{-3}\text{ m}^3$ and $R = \dfrac{25}{3}\text{ J/mol}\cdot\text{K}$:</div>
+              <div>$$10^5 \times 30 \times 10^{-3} = \left(\frac{x}{20} + \frac{28 - x}{40}\right) \times \frac{25}{3} \times 300$$</div>
+              <div>$$3000 = \left(\frac{2x + 28 - x}{40}\right) \times 2500 \implies \frac{x + 28}{40} = \frac{30}{25} = 1.2 \implies x + 28 = 48$$</div>
+              <div class="pt-1 text-emerald-300 font-bold text-sm">
+                $$\text{Answer: Mass of Neon } (x) = 20\text{ g} \quad (\text{and Argon} = 8\text{ g})$$
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem 4: Isothermal Piston SHM (Page 6) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 print-break-avoid">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300">Problem 4 • Page 6 (Classic JEE SHM)</span>
+              <span class="text-xs text-slate-400">Isothermal Piston Oscillation</span>
+            </div>
+            <p class="text-sm font-semibold text-white">
+              Q. A vertical cylinder with a movable piston (mass $m$, area $A$, equilibrium gas height $l$) is in equilibrium. It is pushed downward slightly by $x$ and released. Find the angular frequency $\omega$ and period of resulting SHM assuming temperature remains constant.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 items-center bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs">
+              <!-- Piston SVG from Page 6 -->
+              <svg viewBox="0 0 120 140" class="w-28 h-32 shrink-0">
+                <text x="48" y="15" fill="#94a3b8" font-size="10" font-family="monospace">P₀ ↓</text>
+                <!-- Cylinder Walls -->
+                <polyline points="25,22 25,125 95,125 95,22" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+                <!-- Piston -->
+                <rect x="27" y="45" width="66" height="12" fill="rgba(99, 102, 241, 0.4)" stroke="#818cf8" stroke-width="1.5"/>
+                <text x="44" y="54" fill="#ffffff" font-size="9" font-family="monospace">m, A</text>
+                <!-- Gas region -->
+                <text x="52" y="92" fill="#34d399" font-size="11" font-family="monospace" font-weight="bold">P</text>
+                <!-- Height l -->
+                <line x1="105" y1="57" x2="105" y2="125" stroke="#38bdf8" stroke-width="1.2"/>
+                <text x="110" y="95" fill="#38bdf8" font-size="10" font-style="italic">l</text>
+              </svg>
+              <div class="space-y-1 text-slate-300 flex-1">
+                <div>1. Equilibrium Gas Pressure: $\mathbf{P = P_0 + \dfrac{mg}{A}}$</div>
+                <div>2. Since $T = \text{const} \implies PV = \text{const} \implies \dfrac{\Delta P}{P} + \dfrac{\Delta V}{V} = 0$</div>
+                <div>3. For small downward displacement $x$: $\Delta V = -Ax$ and $V = Al$:
+                  $$\Delta P = -P \frac{\Delta V}{V} = -P \frac{(-Ax)}{Al} = \frac{P}{l} x$$
+                </div>
+                <div>4. Restoring force: $F_{\text{rest}} = -(\Delta P)A = -\dfrac{PA}{l}x \implies ma = -\dfrac{PA}{l}x \implies a = -\left(\dfrac{PA}{ml}\right)x$</div>
+                <div class="pt-1 text-emerald-300 font-bold">
+                  $$\omega = \sqrt{\frac{PA}{ml}} = \sqrt{\frac{P_0 A + mg}{ml}} \implies T = 2\pi\sqrt{\frac{ml}{P_0 A + mg}}$$
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem 5: RMS Speed of Hydrogen at 127 C (Page 10) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 print-break-avoid">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-indigo-500/20 text-indigo-300">Problem 5 • Page 10</span>
+              <span class="text-xs text-slate-400">RMS Speed Calculation</span>
+            </div>
+            <p class="text-sm font-semibold text-white">
+              Q. Find the RMS speed of Hydrogen ($\text{H}_2$) gas at $127^\circ\text{C}$.
+            </p>
+            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs space-y-1.5 text-slate-300">
+              <div>• Given: $T = 127 + 273 = 400\text{ K}$, Molar mass of $\text{H}_2$: $M_0 = 2\text{ g/mol} = 2 \times 10^{-3}\text{ kg/mol}$, $R = \dfrac{25}{3}\text{ J/mol}\cdot\text{K}$.</div>
+              <div>
+                $$v_{\text{rms}} = \sqrt{\frac{3RT}{M_0}} = \sqrt{\frac{3 \times \left(\frac{25}{3}\right) \times 400}{2 \times 10^{-3}}} = \sqrt{\frac{25 \times 400 \times 10^3}{2}} = \sqrt{5{,}000{,}000}$$
+              </div>
+              <div class="pt-1 text-emerald-300 font-bold text-sm">
+                $$\text{Answer: } v_{\text{rms}} = 1000\sqrt{5}\text{ m/s} = \sqrt{5}\text{ km/s} \approx 2236\text{ m/s}$$
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem 6: O2 RMS vs He MPS Temperature (Page 10) -->
+          <div class="card-surface rounded-2xl bg-slate-900/80 border border-slate-800 p-5 space-y-3 print-break-avoid">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-amber-500/20 text-amber-300">Problem 6 • Page 10 (+ Notebook Verification Note)</span>
+              <span class="text-xs text-slate-400">Equating $v_{\text{rms}}$ &amp; $v_{\text{mp}}$</span>
+            </div>
+            <p class="text-sm font-semibold text-white">
+              Q. At what temperature is the RMS speed of Oxygen ($\text{O}_2$) at $200^\circ\text{C}$ the same as the Most Probable Speed ($v_{\text{mp}}$) of Helium ($\text{He}$)?
+            </p>
+            <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800 text-xs space-y-2 text-slate-300">
+              <div>• Given: $T_{\text{O}_2} = 200 + 273 = 473\text{ K}$, $M_{\text{O}_2} = 32 \times 10^{-3}\text{ kg/mol}$, $M_{\text{He}} = 4 \times 10^{-3}\text{ kg/mol}$.</div>
+              <div>• Step 1 (Written in Notebook): Equating $(v_{\text{rms}})_{\text{O}_2} = (v_{\text{mp}})_{\text{He}}$:
+                $$\sqrt{\frac{3R(473)}{32 \times 10^{-3}}} = \sqrt{\frac{2 R T_{\text{He}}}{4 \times 10^{-3}}}$$
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <div class="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                  <div class="font-bold text-emerald-300">✅ Exact Solution for $T_{\text{He}}$:</div>
+                  <div class="mt-1">
+                    $$\frac{3 \times 473}{32} = \frac{2 \times T_{\text{He}}}{4}$$
+                    $$T_{\text{He}} = \frac{3 \times 473 \times 4}{32 \times 2} = \frac{1419}{16} = \mathbf{88.69\text{ K}}$$
+                  </div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30">
+                  <div class="font-bold text-amber-300">📝 Notebook Step 2 Note:</div>
+                  <div class="mt-1 text-[11px]">
+                    In the notebook's 2nd line, $T$ and $473$ were swapped across the fractions ($\frac{3T}{32\times 10^{-3}} = \frac{2\times 473}{4\times 10^{-3}}$), giving:
+                    $$T = \frac{32 \times 2 \times 473}{3 \times 4} = \frac{7568}{3} \approx 2522.67\text{ K}$$
+                    <span class="text-slate-400">(which is $T_{\text{O}_2}$ if $\text{He}$ were at $473\text{ K}$).</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 2: 1-PAGE ULTRA-COMPACT FORMULA & CHEAT SHEET                    -->
+    <!-- ===================================================================== -->
+    <div id="view-formulas" class="hidden space-y-6">
+      <div class="card-surface rounded-2xl bg-slate-900/90 border border-indigo-500/40 p-5 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h2 class="text-xl font-extrabold text-white">📐 KTG 1-Page Rapid Formula &amp; Pocket Revision Sheet</h2>
+            <p class="text-xs text-slate-400">Every equation, constant, ratio, and DOF value from your 17-page notebook in one dense view.</p>
+          </div>
+          <button onclick="window.print()" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold no-print">
+            🖨️ Print 1-Page Sheet
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+          <!-- Box 1 -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-indigo-400 uppercase">1. Kinetic Gas &amp; Ideal Gas Eqns</div>
+            <div>• $\Delta P_{\text{wall}} = 2mv_x$, &nbsp; $f_{\text{1 mol}} = \dfrac{mv_x^2}{l}$</div>
+            <div>• $PV = \dfrac{1}{3} m N v_{\text{rms}}^2 = \dfrac{1}{3} M v_{\text{rms}}^2$</div>
+            <div>• $P = \dfrac{1}{3} \rho v_{\text{rms}}^2 \implies P = \dfrac{2}{3} \left(\dfrac{K}{V}\right)$</div>
+            <div>• $PV = N k_B T = n R T \quad (R = N_A k_B)$</div>
+            <div>• $\rho = \dfrac{P M_0}{RT}$, &nbsp; $\rho_n = \dfrac{N}{V} = \dfrac{P}{k_B T}$</div>
+          </div>
+
+          <!-- Box 2 -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-emerald-400 uppercase">2. Translational Kinetic Energy</div>
+            <div>• $K_{\text{sample}} = \dfrac{1}{2} M v_{\text{rms}}^2 = \dfrac{3}{2} PV = \dfrac{3}{2} nRT$</div>
+            <div>• $K_{\text{1 mole}} = \dfrac{K}{n} = \dfrac{3}{2} RT$ (Only fn of $T$)</div>
+            <div>• $K_{\text{1 molecule}} = \dfrac{3}{2} k_B T$ (Only fn of $T$)</div>
+            <div>• $k_B = 1.38 \times 10^{-23}\text{ J/K}$</div>
+            <div>• $R = 8.31\text{ J/mol}\cdot\text{K} \approx \dfrac{25}{3}\text{ J/mol}\cdot\text{K} \approx 2\text{ cal/mol}\cdot\text{K}$</div>
+          </div>
+
+          <!-- Box 3 -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-amber-400 uppercase">3. Molecular Speeds ($v_{\text{rms}} > v_{\text{avg}} > v_{\text{mp}}$)</div>
+            <div>• $v_{\text{mp}} = \sqrt{\dfrac{2RT}{M_0}} = \sqrt{\dfrac{2k_B T}{m}} = \sqrt{\dfrac{2P}{\rho}}$</div>
+            <div>• $v_{\text{avg}} = \sqrt{\dfrac{8RT}{\pi M_0}} = \sqrt{\dfrac{8k_B T}{\pi m}} = \sqrt{\dfrac{8P}{\pi \rho}}$</div>
+            <div>• $v_{\text{rms}} = \sqrt{\dfrac{3RT}{M_0}} = \sqrt{\dfrac{3k_B T}{m}} = \sqrt{\dfrac{3P}{\rho}}$</div>
+            <div>• Ratio: $v_{\text{rms}} : v_{\text{avg}} : v_{\text{mp}} = \sqrt{3} : \sqrt{\dfrac{8}{\pi}} : \sqrt{2}$</div>
+            <div>• $\langle \vec{v} \rangle = \vec{0},\ \langle \vec{P} \rangle = \vec{0}$, but $\langle |\vec{P}| \rangle = m v_{\text{avg}} \neq 0$</div>
+          </div>
+
+          <!-- Box 4 -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-purple-400 uppercase">4. Mean Free Path ($\lambda$) &amp; Relaxation ($\tau$)</div>
+            <div>• $(v_{\text{rel}})_{\text{avg}} = \sqrt{2}\,v_{\text{avg}}$</div>
+            <div>• $\tau = \dfrac{1}{\sqrt{2} \pi \rho_n d^2 v_{\text{avg}}}$</div>
+            <div>• $\lambda = v_{\text{avg}} \tau = \dfrac{1}{\sqrt{2} \pi \rho_n d^2} = \dfrac{k_B T}{\sqrt{2} \pi d^2 P}$</div>
+            <div>• Collision frequency $f = \dfrac{1}{\tau} = \sqrt{2} \pi \rho_n d^2 v_{\text{avg}}$</div>
+          </div>
+
+          <!-- Box 5 -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-rose-400 uppercase">5. DOF ($f$) &amp; Equipartition of Energy</div>
+            <div>• Monoatomic: $f = 3\ (3T + 0R)$</div>
+            <div>• Diatomic / Linear Poly: $f = 5\ (3T + 2R)$</div>
+            <div>• Non-Linear Polyatomic: $f = 6\ (3T + 3R)$</div>
+            <div>• Vibrational: $2$ DOF per mode ($1\text{ KE} + 1\text{ PE}$); $\text{CO}_2$ active at room temp!</div>
+            <div>• Energy: $\dfrac{1}{2}k_B T$ per DOF/molecule; $U_{\text{ideal}} = \dfrac{f}{2}nRT$</div>
+          </div>
+
+          <!-- Box 6 -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+            <div class="font-bold text-sky-400 uppercase">6. Solids (Dulong-Petit) &amp; Water ($\text{H}_2\text{O}$)</div>
+            <div>• Crystalline Solid: $3$ vib modes $\implies f = 6$</div>
+            <div>• $U_{\text{solid}} = 3nRT \implies C_{\text{solid}} = 3R,\ S = \dfrac{3R}{M_0}$</div>
+            <div>• Water ($\text{H}_2\text{O}$, $3$ atoms): $f = 3 \times 6 = 18$</div>
+            <div>• $U_{\text{water}} = 9nRT \implies C_{\text{water}} = 9R$</div>
+            <div>• $S_{\text{water}} = \dfrac{9R}{M_0} = \dfrac{9 \times 2}{18} = 1\text{ cal/g}\cdot\text{K}$</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 3: interactive MAXWELL-BOLTZMANN & KTG SIMULATOR LAB             -->
+    <!-- ===================================================================== -->
+    <div id="view-simulator" class="hidden space-y-6">
+      <div class="card-surface rounded-2xl bg-slate-900/90 border border-emerald-500/40 p-5 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+              <span>📈 Interactive Maxwell-Boltzmann Distribution &amp; KTG Calculator</span>
+            </h2>
+            <p class="text-xs text-slate-400">
+              Visualize how Temperature ($T$) and Gas Molar Mass ($M_0$) shift $v_{\text{mp}}, v_{\text{avg}}, v_{\text{rms}}$ and flatten the distribution curve while keeping total area constant.
+            </p>
+          </div>
+          <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+            Interactive Physics Sandbox
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Controls -->
+          <div class="lg:col-span-4 space-y-4 bg-slate-950/80 p-4 rounded-xl border border-slate-800 text-xs">
+            <div>
+              <label class="font-bold text-slate-200 block mb-1.5">1. Select Ideal Gas ($M_0$ &amp; DOF $f$):</label>
+              <select id="simGasSelect" onchange="updateSimulator()" class="w-full p-2.5 rounded-lg bg-slate-900 border border-slate-700 text-white font-medium focus:outline-none focus:border-indigo-500">
+                <option value="2,5,Hydrogen (H₂)">Hydrogen (H₂) — M₀ = 2 g/mol, f = 5</option>
+                <option value="4,3,Helium (He)">Helium (He) — M₀ = 4 g/mol, f = 3</option>
+                <option value="20,3,Neon (Ne)">Neon (Ne) — M₀ = 20 g/mol, f = 3</option>
+                <option value="28,5,Nitrogen (N₂)">Nitrogen (N₂) — M₀ = 28 g/mol, f = 5</option>
+                <option value="32,5,Oxygen (O₂)" selected>Oxygen (O₂) — M₀ = 32 g/mol, f = 5</option>
+                <option value="40,3,Argon (Ar)">Argon (Ar) — M₀ = 40 g/mol, f = 3</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-bold text-sky-300 mb-1">
+                <span>2. Temperature $T_1$ (Blue Curve):</span>
+                <span id="simT1Val" class="font-mono">300 K (27°C)</span>
+              </div>
+              <input id="simT1" type="range" min="100" max="1200" step="10" value="300" oninput="updateSimulator()" class="w-full accent-sky-400 cursor-pointer"/>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-bold text-rose-400 mb-1">
+                <span>3. Comparison Temp $T_2$ (Red Curve):</span>
+                <span id="simT2Val" class="font-mono">600 K (327°C)</span>
+              </div>
+              <input id="simT2" type="range" min="100" max="1200" step="10" value="600" oninput="updateSimulator()" class="w-full accent-rose-500 cursor-pointer"/>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-bold text-emerald-300 mb-1">
+                <span>4. Pressure $P$ (for Mean Free Path $\lambda$):</span>
+                <span id="simPVal" class="font-mono">1.0 × 10⁵ Pa</span>
+              </div>
+              <input id="simP" type="range" min="0.2" max="5.0" step="0.2" value="1.0" oninput="updateSimulator()" class="w-full accent-emerald-400 cursor-pointer"/>
+            </div>
+
+            <!-- Live Outputs for T1 -->
+            <div class="pt-2 border-t border-slate-800 space-y-2">
+              <div class="font-bold text-white uppercase tracking-wider text-[11px]">Live Calculated Values at $T_1$:</div>
+              <div class="grid grid-cols-3 gap-2 text-center">
+                <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                  <div class="text-[10px] text-emerald-400 font-mono">v_mp</div>
+                  <div id="outVmp" class="font-mono font-bold text-white text-sm mt-0.5">395 m/s</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                  <div class="text-[10px] text-sky-400 font-mono">v_avg</div>
+                  <div id="outVavg" class="font-mono font-bold text-white text-sm mt-0.5">446 m/s</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                  <div class="text-[10px] text-amber-400 font-mono">v_rms</div>
+                  <div id="outVrms" class="font-mono font-bold text-white text-sm mt-0.5">484 m/s</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-center">
+                <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                  <div class="text-[10px] text-indigo-300">Trans KE / mol ($\frac{3}{2}RT_1$)</div>
+                  <div id="outKEmol" class="font-mono font-bold text-white text-xs mt-0.5">3.74 kJ/mol</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
+                  <div class="text-[10px] text-purple-300">Internal Energy / mol ($\frac{f}{2}RT_1$)</div>
+                  <div id="outUmol" class="font-mono font-bold text-white text-xs mt-0.5">6.23 kJ/mol</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Plotter -->
+          <div class="lg:col-span-8 bg-slate-950 rounded-xl border border-slate-800 p-4 flex flex-col justify-between">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2 text-xs">
+              <span id="simChartTitle" class="font-bold text-slate-200">Maxwell Speed Distribution Curve — Oxygen (O₂)</span>
+              <div class="flex items-center gap-4 font-mono text-[11px]">
+                <span class="flex items-center gap-1.5 text-sky-400"><span class="w-3 h-0.5 bg-sky-400 inline-block"></span> T₁ Curve</span>
+                <span class="flex items-center gap-1.5 text-rose-400"><span class="w-3 h-0.5 bg-rose-400 inline-block"></span> T₂ Curve</span>
+              </div>
+            </div>
+            <div class="relative w-full h-72 sm:h-80">
+              <canvas id="maxwellCanvas" class="w-full h-full block"></canvas>
+            </div>
+            <div class="text-[11px] text-slate-400 font-mono text-center mt-2">
+              Notice: Increasing $T$ shifts $v_{\text{mp}}$ right ($\propto \sqrt{T}$) and lowers peak height so total area under curve remains constant!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- 17-PAGE NOTEBOOK AUDIT CHECKLIST MODAL                                  -->
+  <!-- ======================================================================= -->
+  <div id="auditModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-white">✅ 17-Page Handwritten Notebook Audit Checklist</h3>
+          <p class="text-xs text-slate-400">Every single page from your PDF mapped to this website — zero concepts missed.</p>
+        </div>
+        <button onclick="closeAuditModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">✕</button>
+      </div>
+      <div class="p-4 sm:p-5 overflow-y-auto space-y-2 text-xs">
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 1:</strong> Intro, Ideal Gas 2 conditions ($\text{PE}=0$, $V \gg V_{\text{mol}}$), Real gas at High $T$ &amp; Low $P$, Assumptions 1–5</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 2:</strong> Assumption 6, Cube container diagram, $\Delta P = 2mv_x$, $f = mv_x^2/l$, $PV = \frac{1}{3}Mv_{\text{rms}}^2$ derivation</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 3:</strong> Definition of $v_{\text{rms}}$, $P = \frac{1}{3}\rho v_{\text{rms}}^2$, Sample KE $K = \frac{1}{2}Mv_{\text{rms}}^2$, $PV = \frac{2}{3}K$</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 4:</strong> Ideal Gas Eqn from KTG ($\frac{1}{2}mv_{\text{rms}}^2 = CT$), $PV=Nk_BT$, $PV=nRT$, $k_B = 1.38\times 10^{-23}$, $R = 8.31 \approx \frac{25}{3}$</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 5:</strong> Boyle's, Charles's, Gay-Lussac's &amp; Avogadro's Laws + all 4 graphs</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 6:</strong> STP ($22.4\text{ L}$) note + 4 Solved Problems ($\rho=\frac{PM_0}{RT}$, $+68\%$ temp change, $\text{Ne-Ar}$ $20\text{ g}$, Isothermal Piston SHM)</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 7:</strong> $v_{\text{avg}}$ &amp; $v_{\text{rms}}$ definitions, $\sqrt{3RT/M_0}=\sqrt{3k_BT/m}=\sqrt{3P/\rho}$, Vector $\langle\vec{v}\rangle=0$ &amp; $\langle|\vec{P}|\rangle=mv_{\text{avg}}\neq 0$ notes</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Pages 8–9:</strong> Maxwell's Speed Distribution graph, $v_{\text{mp}}, v_{\text{avg}}, v_{\text{rms}}$ integrals, Ratio $\sqrt{3}:\sqrt{8/\pi}:\sqrt{2}$, Area $=N$ vs Area $=1$, Effect of $T$</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Page 10:</strong> Solved Q5 ($\text{H}_2$ $v_{\text{rms}}$ at $127^\circ\text{C} = \sqrt{5}\text{ km/s}$), Solved Q6 ($\text{O}_2$ vs $\text{He}$), $\lambda$ &amp; $\tau$ definitions</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Pages 11–12:</strong> Collision cylinder derivation, relative velocity $\sqrt{2}v_{\text{avg}}$ correction, $\lambda = \frac{k_BT}{\sqrt{2}\pi d^2 P}$, Translational KE ($K, K_1, K_{\text{mol}}$)</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Pages 13–15:</strong> Degrees of Freedom (Mono=3, Dia/Linear=5, Non-linear=6), Vibrational DOF ($2$ per mode, $\text{CO}_2$ exception), Equipartition Law</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+        <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between"><span><strong>Pages 16–17:</strong> Internal Energy $U=\frac{f}{2}nRT$, Dulong-Petit Law ($f=6 \implies C=3R$), Water Specific Heat ($f=18 \implies C=9R,\ S=1\text{ cal/g}\cdot\text{K}$)</span><span class="text-emerald-400 font-mono">✓ Included</span></div>
+      </div>
+      <div class="p-4 border-t border-slate-800 flex justify-end">
+        <button onclick="closeAuditModal()" class="px-4 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 py-8 border-t border-slate-800/80 text-center text-xs text-slate-500 no-print">
+    Kinetic Theory of Gases (KTG) Complete Short Notes • Built 100% from your 17-Page Physics Notebook • Ready for JEE Main &amp; Advanced Revision
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Render KaTeX equations once loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof renderMathInElement !== "undefined") {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+        });
+      }
+      updateSimulator();
+      window.addEventListener("resize", () => {
+        if (!document.getElementById("view-simulator").classList.contains("hidden")) {
+          updateSimulator();
+        }
+      });
+    });
+
+    // Tab / View Switching
+    function switchTab(tab) {
+      const allView = document.getElementById('view-all');
+      const formulasView = document.getElementById('view-formulas');
+      const simView = document.getElementById('view-simulator');
+      const sections = document.querySelectorAll('.searchable-section');
+
+      // Reset tab button styles
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = "tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition whitespace-nowrap";
+      });
+      const activeBtn = document.getElementById('tab-' + tab);
+      if (activeBtn) {
+        activeBtn.className = "tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm transition whitespace-nowrap";
+      }
+
+      // Show/Hide Views
+      allView.classList.add('hidden');
+      formulasView.classList.add('hidden');
+      simView.classList.add('hidden');
+      sections.forEach(s => s.classList.remove('hidden'));
+
+      if (tab === 'all') {
+        allView.classList.remove('hidden');
+      } else if (tab === 'formulas') {
+        formulasView.classList.remove('hidden');
+      } else if (tab === 'derivations') {
+        allView.classList.remove('hidden');
+        // Show sections with derivations (Sec 2, 3, 5, 7)
+        sections.forEach(s => {
+          if (!['sec-2', 'sec-3', 'sec-5', 'sec-7'].includes(s.id)) {
+            s.classList.add('hidden');
+          }
+        });
+      } else if (tab === 'problems') {
+        allView.classList.remove('hidden');
+        sections.forEach(s => {
+          if (s.id !== 'sec-8') s.classList.add('hidden');
+        });
+      } else if (tab === 'simulator') {
+        simView.classList.remove('hidden');
+        setTimeout(updateSimulator, 50);
+      }
+    }
+
+    // Live Search Filter
+    function handleSearch(query) {
+      const clearBtn = document.getElementById('clearSearchBtn');
+      const q = query.trim().toLowerCase();
+      if (q.length > 0) {
+        clearBtn.classList.remove('hidden');
+        switchTab('all');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      const sections = document.querySelectorAll('.searchable-section');
+      sections.forEach(sec => {
+        const text = sec.innerText.toLowerCase();
+        if (!q || text.includes(q)) {
+          sec.classList.remove('hidden');
+        } else {
+          sec.classList.add('hidden');
+        }
+      });
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      input.value = '';
+      handleSearch('');
+    }
+
+    // Modal Controls
+    function openAuditModal() {
+      document.getElementById('auditModal').classList.remove('hidden');
+    }
+    function closeAuditModal() {
+      document.getElementById('auditModal').classList.add('hidden');
+    }
+
+    // Light / Dark Mode Toggle
+    let isDark = true;
+    function toggleTheme() {
+      isDark = !isDark;
+      const html = document.documentElement;
+      const body = document.body;
+      const icons = document.querySelectorAll('.theme-icon');
+      const themeText = document.getElementById('themeText');
+
+      if (isDark) {
+        html.classList.add('dark');
+        body.style.backgroundColor = '#020617';
+        body.style.color = '#f1f5f9';
+        icons.forEach(i => i.textContent = '☀️');
+        if (themeText) themeText.textContent = 'Light Mode';
+      } else {
+        html.classList.remove('dark');
+        body.style.backgroundColor = '#f8fafc';
+        body.style.color = '#0f172a';
+        icons.forEach(i => i.textContent = '🌙');
+        if (themeText) themeText.textContent = 'Dark Mode';
+      }
+      updateSimulator();
+    }
+
+    // Interactive Maxwell-Boltzmann Simulator & KTG Calculator
+    function updateSimulator() {
+      const canvas = document.getElementById('maxwellCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      const W = rect.width;
+      const H = rect.height;
+
+      const gasRaw = document.getElementById('simGasSelect').value.split(',');
+      const M0_g = parseFloat(gasRaw[0]);
+      const dof = parseInt(gasRaw[1], 10);
+      const gasName = gasRaw[2];
+      const M0 = M0_g * 1e-3; // kg/mol
+      const R = 8.314;
+
+      const T1 = parseFloat(document.getElementById('simT1').value);
+      const T2 = parseFloat(document.getElementById('simT2').value);
+      const P_bar = parseFloat(document.getElementById('simP').value);
+
+      document.getElementById('simT1Val').textContent = `${T1} K (${Math.round(T1 - 273)}°C)`;
+      document.getElementById('simT2Val').textContent = `${T2} K (${Math.round(T2 - 273)}°C)`;
+      document.getElementById('simPVal').textContent = `${P_bar.toFixed(1)} × 10⁵ Pa`;
+      document.getElementById('simChartTitle').textContent = `Maxwell Speed Distribution Curve — ${gasName}`;
+
+      // Speeds for T1
+      const vmp1 = Math.sqrt((2 * R * T1) / M0);
+      const vavg1 = Math.sqrt((8 * R * T1) / (Math.PI * M0));
+      const vrms1 = Math.sqrt((3 * R * T1) / M0);
+
+      // Speeds for T2
+      const vmp2 = Math.sqrt((2 * R * T2) / M0);
+
+      // Update numeric readouts
+      document.getElementById('outVmp').textContent = `${Math.round(vmp1)} m/s`;
+      document.getElementById('outVavg').textContent = `${Math.round(vavg1)} m/s`;
+      document.getElementById('outVrms').textContent = `${Math.round(vrms1)} m/s`;
+
+      const keMol = 1.5 * R * T1 / 1000;
+      const uMol = (dof / 2) * R * T1 / 1000;
+      document.getElementById('outKEmol').textContent = `${keMol.toFixed(2)} kJ/mol`;
+      document.getElementById('outUmol').textContent = `${uMol.toFixed(2)} kJ/mol`;
+
+      // Maxwell-Boltzmann Probability Density Function f(v)
+      function maxwellPDF(v, T) {
+        const a = M0 / (2 * R * T);
+        return 4 * Math.PI * Math.pow(a / Math.PI, 1.5) * v * v * Math.exp(-a * v * v);
+      }
+
+      const maxV = Math.max(2500, vrms1 * 2.4, vmp2 * 2.4);
+      const peakY = Math.max(maxwellPDF(vmp1, T1), maxwellPDF(vmp2, T2)) * 1.15;
+
+      // Clear & Draw Grid
+      ctx.clearRect(0, 0, W, H);
+      const padL = 48, padR = 24, padT = 20, padB = 38;
+      const plotW = W - padL - padR;
+      const plotH = H - padT - padB;
+
+      // Axes
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(padL, padT);
+      ctx.lineTo(padL, padT + plotH);
+      ctx.lineTo(padL + plotW, padT + plotH);
+      ctx.stroke();
+
+      // Axis Labels
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '11px JetBrains Mono, monospace';
+      ctx.fillText('f(v) = (1/N) dN/dv', padL + 8, padT + 12);
+      ctx.fillText('Speed v (m/s) →', padL + plotW - 110, padT + plotH + 30);
+
+      // X-axis ticks
+      const numTicks = 5;
+      for (let i = 0; i <= numTicks; i++) {
+        const vTick = Math.round((maxV / numTicks) * i);
+        const x = padL + (vTick / maxV) * plotW;
+        ctx.fillStyle = '#64748b';
+        ctx.fillText(vTick.toString(), x - 12, padT + plotH + 16);
+      }
+
+      // Helper to plot curve
+      function drawCurve(T, strokeColor, fillColor) {
+        ctx.beginPath();
+        for (let i = 0; i <= 200; i++) {
+          const v = (i / 200) * maxV;
+          const yVal = maxwellPDF(v, T);
+          const x = padL + (v / maxV) * plotW;
+          const y = padT + plotH - (yVal / peakY) * plotH;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        ctx.lineTo(padL + plotW, padT + plotH);
+        ctx.lineTo(padL, padT + plotH);
+        ctx.closePath();
+        ctx.fillStyle = fillColor;
+        ctx.fill();
+      }
+
+      // Draw T2 and T1 curves
+      drawCurve(T2, '#f43f5e', 'rgba(244, 63, 94, 0.10)');
+      drawCurve(T1, '#38bdf8', 'rgba(56, 189, 248, 0.14)');
+
+      // Draw Vertical Markers for T1 (v_mp, v_avg, v_rms)
+      const markers = [
+        { v: vmp1, label: 'v_mp', color: '#34d399' },
+        { v: vavg1, label: 'v_avg', color: '#38bdf8' },
+        { v: vrms1, label: 'v_rms', color: '#fbbf24' }
+      ];
+
+      markers.forEach((m, idx) => {
+        const x = padL + (m.v / maxV) * plotW;
+        const y = padT + plotH - (maxwellPDF(m.v, T1) / peakY) * plotH;
+        ctx.save();
+        ctx.setLineDash([4, 3]);
+        ctx.strokeStyle = m.color;
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, padT + plotH);
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.fillStyle = m.color;
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.font = 'bold 10px JetBrains Mono, monospace';
+        ctx.fillText(m.label, x - 14, y - 8 - (idx % 2) * 10);
+      });
+    }
+  </script>
+</body>
+</html>
